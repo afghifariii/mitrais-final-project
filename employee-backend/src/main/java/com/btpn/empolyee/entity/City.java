@@ -1,4 +1,4 @@
-package com.btpn.empolyee.domain;
+package com.btpn.empolyee.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
