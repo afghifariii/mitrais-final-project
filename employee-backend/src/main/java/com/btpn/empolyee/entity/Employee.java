@@ -12,11 +12,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "t_employee")
@@ -40,26 +44,30 @@ public class Employee {
 	@Column(length = 6, nullable = false)
 	private String gender;
 	
-	//@NotNull @NotEmpty
-	@Column(name = "date_of_birth", nullable = true)
+	@NotNull
+	@Column(name = "date_of_birth", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
 	
 	@NotNull @NotEmpty
-	@Column(length = 45, nullable = true)
+	@Column(length = 45, nullable = false)
 	private String nationality;
 	
-	@Column(name = "martial_status", length = 7, nullable = true)
+	@NotNull @NotEmpty
+	@Column(name = "martial_status", length = 7, nullable = false)
 	private String martialStatus;
 	
-	@Column(length = 15, nullable = true)
+	@NotNull @NotEmpty
+	@Column(length = 15, nullable = false)
 	private String phone;
 	
+	@NotNull @NotEmpty
 	@Email
 	@Column(nullable = false, unique = true, length = 50)
 	private String email;
 	
-	@Column(name = "hired_date", nullable = true)
+	@NotNull
+	@Column(name = "hired_date", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date hiredDate;
 	
@@ -67,22 +75,26 @@ public class Employee {
 	@Temporal(TemporalType.DATE)
 	private Date suspendDate;
 	
-	@Column(length = 45, nullable = true)
+	@NotNull @NotEmpty
+	@Column(length = 45, nullable = false)
 	private String division;
 	
-	@Column(length = 45, nullable = true)
+	@NotNull @NotEmpty
+	@Column(length = 45, nullable = false)
 	private String grade;
 	
-	@Column(length = 45, name = "sub_division", nullable = true)
+	@NotNull @NotEmpty
+	@Column(length = 45, name = "sub_division", nullable = false)
 	private String subDivision;
 	
-	@Column(length = 20, nullable = true)
+	@NotNull @NotEmpty
+	@Column(length = 20, nullable = false)
 	private String status;
 	
 	@Column(nullable = true)
 	private String photo;
 	
-	@NotNull
+	@NotNull @NotEmpty
 	@ManyToOne
 	@JoinColumn(name = "loc_id", nullable = false)
 	private Location location;
