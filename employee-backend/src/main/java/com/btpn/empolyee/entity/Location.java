@@ -4,12 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class City {
+@Table(name = "t_location")
+public class Location {
 
 	@Id
 	@GeneratedValue(generator = "uuid")
@@ -19,7 +21,9 @@ public class City {
 	@NotNull
 	@Column(nullable = false)
 	private String city;
-
+	
+	
+	
 	public String getId() {
 		return id;
 	}
