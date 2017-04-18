@@ -11,10 +11,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "t_employee")
@@ -26,24 +28,24 @@ public class Employee {
 	@Column(name = "emp_id")
 	private String empId;
 	
-	@NotBlank
+	@NotNull @NotEmpty
 	@Column(name = "first_name", length = 45, nullable = false)
 	private String firstName;
 	
-	@NotBlank
+	@NotNull @NotEmpty
 	@Column(name = "last_name", length = 45, nullable = false)
 	private String lastName;
 	
-	@NotBlank
+	@NotNull @NotEmpty
 	@Column(length = 6, nullable = false)
 	private String gender;
 	
-	@NotBlank
-	@Column(name = "date_of_birth", nullable = false)
+	//@NotNull @NotEmpty
+	@Column(name = "date_of_birth", nullable = true)
 	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
 	
-	@NotBlank
+	@NotNull @NotEmpty
 	@Column(length = 45, nullable = true)
 	private String nationality;
 	
@@ -80,6 +82,7 @@ public class Employee {
 	@Column(nullable = true)
 	private String photo;
 	
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "loc_id", nullable = false)
 	private Location location;

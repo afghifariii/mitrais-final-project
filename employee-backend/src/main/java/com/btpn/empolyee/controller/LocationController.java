@@ -10,7 +10,7 @@ import com.btpn.empolyee.dao.LocationDao;
 import com.btpn.empolyee.entity.Location;
 
 @RestController
-public class CityController {
+public class LocationController {
 
 	@Autowired
 	private LocationDao locationDao;

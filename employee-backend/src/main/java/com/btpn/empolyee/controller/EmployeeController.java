@@ -17,17 +17,17 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeDao employeeDao;
 
+	@PostMapping("/employees/")
+	@ResponseStatus(HttpStatus.CREATED)
+	public void saveEmployee(@RequestBody Employee emp){
+		employeeDao.save(emp);
+	}
+	
 	@GetMapping("/employees/")
 	@ResponseStatus(HttpStatus.OK)
 	public Iterable<Employee> allEmployees() {
 
 		return employeeDao.findAll();
-	}
-	
-	@PostMapping("/employees/")
-	@ResponseStatus(HttpStatus.CREATED)
-	public void saveEmployee(@RequestBody Employee emp){
-		employeeDao.save(emp);
 	}
 
 }
