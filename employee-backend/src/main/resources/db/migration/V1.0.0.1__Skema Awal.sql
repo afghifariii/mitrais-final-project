@@ -1,6 +1,12 @@
+create table t_location (
+	id varchar(255) not null,
+	city varchar(255) not null,
+	primary key (id)
+);
+
 create table t_employee (
     emp_id varchar(255) not null,
-    date_of_birth date not null,
+    date_of_birth date,
     division varchar(45),
     email varchar(50) not null,
     first_name varchar(45) not null,
@@ -16,11 +22,6 @@ create table t_employee (
     sub_division varchar(45),
     suspend_date date,
     loc_id varchar(255) not null,
-    primary key (emp_id)
-);
-
-create table t_location (
-	id varchar(255) not null,
-	city varchar(255) not null,
-	primary key (id)
+    primary key (emp_id),
+    foreign key (loc_id) references t_location(id)
 );
