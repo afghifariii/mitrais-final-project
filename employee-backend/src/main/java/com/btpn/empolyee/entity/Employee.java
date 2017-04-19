@@ -88,7 +88,7 @@ public class Employee {
 	@Column(nullable = true)
 	private String photo;
 	
-	@NotNull @NotEmpty
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "loc_id", nullable = false)
 	private Location location;
