@@ -33,6 +33,12 @@ public class EmployeeController {
 		employeeDao.save(emp);
 	}
 	
+	@GetMapping("/employees/{id}")
+	@ResponseStatus(HttpStatus.OK)
+	public Employee findById (@PathVariable String id){
+		return employeeDao.findOne(id);
+	}
+	
 	@PutMapping("/employees/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public void updateEmployee(@PathVariable("id") String id, @RequestBody Employee emp ){
