@@ -11,45 +11,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.btpn.empolyee.dao.EmployeeDao;
 import com.btpn.empolyee.entity.Employee;
+import com.btpn.empolyee.repository.EmployeeRepository;
 
 @RestController
 public class EmployeeController {
 
 	@Autowired
-	private EmployeeDao employeeDao;
+	private EmployeeRepository employeeRepo;
 
-	@GetMapping("/employees/")
+	@GetMapping("/employees/all")
 	@ResponseStatus(HttpStatus.OK)
 	public Iterable<Employee> allEmployees() {
 
-		return employeeDao.findAll();
+		return employeeRepo.findAll();
 	}
 	
 	@PostMapping("/employees/")
 	@ResponseStatus(HttpStatus.CREATED)
 	public void saveEmployee(@RequestBody Employee emp){
-		employeeDao.save(emp);
+		employeeRepo.save(emp);
 	}
 	
 	@GetMapping("/employees/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public Employee findById (@PathVariable String id){
-		return employeeDao.findOne(id);
+		return employeeRepo.findOne(id);
 	}
 	
 	@PutMapping("/employees/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public void updateEmployee(@PathVariable("id") String id, @RequestBody Employee emp ){
 		emp.setEmpId(id);
-		employeeDao.save(emp);
+		employeeRepo.save(emp);
 	}
 	
 	@DeleteMapping("employees/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteEmployee(@PathVariable("id") String id){
-		employeeDao.delete(id);
+		employeeRepo.delete(id);
 	}
 
 }
