@@ -1,24 +1,89 @@
-#navigation {
-  position: fixed;
-  z-index: 10;
-  background-color: #0072C6;
+.fill-remaining-space {
+  flex: 1 1 auto;
 }
 
-#content {
-  padding-top: 64px;
+.top-div {
+    box-sizing: border-box;
+    position: absolute;
+    height: 60px;
+    width: 100%;
+    background-color: #0072C6;
+    top: 0px;
+    left: 0px;
+    right: auto;
+    padding: 10px;
+    color: white;
 }
 
-#list {
-  overflow-y: auto;
-  height: 100vh;
+.top-div span {
+    float: left;
 }
 
-#detail {
-  height: 100vh;
+.top-div-right {
+    float: right;
 }
 
-#addBtn {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
+.left-div {
+    position: absolute;
+    width: 375px;
+    height: auto;
+    top: 60px;   
+    left: 0px;
+    bottom: 0px;
+    border: solid rgba(0, 0, 0, 0.5);
+    border-width: 0px 1px 0px 0px;
 }
+
+
+
+.right-div {
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 60px;
+    left: 375px;
+    right: 0px; /*delete this if no scroll bar*/
+    bottom: 0px;
+    /*background-color: white;*/
+}
+
+.menu-button {
+    float: left;
+}
+
+.user-img {
+    float:left;
+    border-radius: 100%;
+}
+
+.user-title {
+    padding: 0px 0px 0px 10px;
+}
+
+/*
+.user-title {
+    font-size: 18px;
+}
+.left-div {
+  height: 500px;
+  top: 60px;
+  bottom: 0px;
+  width: 250px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+   overflow: auto;
+}
+.left-div-content {
+  overflow: auto;
+  top: 60px;
+  bottom: 0px;
+}
+.floating-button {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
+.right-div {
+  position: absolute;
+  left: 258px;
+  background-color: red;
+}*/

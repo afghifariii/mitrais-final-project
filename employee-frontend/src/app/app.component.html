@@ -1,13 +1,28 @@
-<md-toolbar id="navigation" class="mat-elevation-z4" color="primary">
-  <span>Employee App</span>
-</md-toolbar>
+<div class="top-div">
+  <button md-icon-button class="menu-button"><md-icon svgIcon="menu"></md-icon></button>
+  <img class="user-img" src="src/resources/images/no-image.png" width="40" height="40">
+  <span>
+    <div class="user-title">
+      <a>Ali Firdaus Ghifari</a> <br>
+      <a>SE - JP</a>
+    </div>
+  </span>
+  <span class="fill-remaining-space"></span>
+  <div class="top-div-right">
+    <button md-icon-button class="menu-button"><md-icon svgIcon="settings"></md-icon></button>
+    <button md-icon-button class="menu-button"><md-icon svgIcon="power_settings_new"></md-icon></button>
+  </div>
+</div>
 
-<div id="content" fxLayout="row">
-  <div id="list" fxFlex="25%">
+<div class="main-div">
+  <div class="left-div">
     <employee-list></employee-list>
   </div>
 
-  <div id="detail" fxFlex="75%">
-
+  <div class="right-div">
+    <!--<navigator-bar></navigator-bar>-->
+    <!--<detail-employee></detail-employee>-->
   </div>
 </div>
+
+<btn-svg></btn-svg>

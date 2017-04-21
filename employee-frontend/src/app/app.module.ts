@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { MdToolbarModule, MdGridListModule, MdButtonModule, MdIconModule, MdCardModule } from "@angular/material";
+import { MdButtonModule, MdIconModule, MdInputModule, MdChipsModule, MdTabsModule } from "@angular/material";
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { EmployeeListComponent } from "./employee/employee-list/employee-list.component";
@@ -27,11 +27,11 @@ import { BtnSvgComponent } from './btn-svg/btn-svg.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MdToolbarModule, 
-    MdGridListModule, 
     MdButtonModule, 
     MdIconModule, 
-    MdCardModule,
+    MdInputModule, 
+    MdChipsModule, 
+    MdTabsModule,
     FlexLayoutModule,
     BrowserAnimationsModule
   ],
