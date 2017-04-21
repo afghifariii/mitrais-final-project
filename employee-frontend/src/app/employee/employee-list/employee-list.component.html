@@ -1,3 +1,3 @@
-<p>
-  employee-list works!
-</p>
+<md-card *ngFor="let employee of employees">
+  {{ employee.firstName }} {{employee.lastName}}
+</md-card>
