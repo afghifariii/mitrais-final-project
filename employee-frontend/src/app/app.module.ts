@@ -13,13 +13,15 @@ import { AppComponent } from './app.component';
 
 import { EmployeeService } from "./employee/employee.service";
 import { LocationService } from "./location/location.service";
+import { BtnSvgComponent } from './btn-svg/btn-svg.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    BtnSvgComponent
   ],
   imports: [
     BrowserModule,
