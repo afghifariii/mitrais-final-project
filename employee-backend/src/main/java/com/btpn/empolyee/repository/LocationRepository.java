@@ -1,9 +1,9 @@
-package com.btpn.empolyee.dao;
+package com.btpn.empolyee.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.btpn.empolyee.entity.Location;
 
-public interface LocationDao extends PagingAndSortingRepository<Location, String> {
+public interface LocationRepository extends PagingAndSortingRepository<Location, String> {
 
 }
