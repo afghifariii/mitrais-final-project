@@ -14,6 +14,8 @@ import { AppComponent } from './app.component';
 import { EmployeeService } from "./employee/employee.service";
 import { LocationService } from "./location/location.service";
 import { BtnSvgComponent } from './btn-svg/btn-svg.component';
+import { EmployeeSearchComponent } from './employee/employee-search/employee-search.component';
+import { SideTabComponent } from './side-tab/side-tab.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { BtnSvgComponent } from './btn-svg/btn-svg.component';
     AppComponent,
     EmployeeListComponent,
     EmployeeDetailComponent,
-    BtnSvgComponent
+    BtnSvgComponent,
+    EmployeeSearchComponent,
+    SideTabComponent
   ],
   imports: [
     BrowserModule,
