@@ -12,7 +12,7 @@ export class EmployeeService {
   private url;
 
   constructor(private http: Http) {
-    this.url = '/api/employees/';
+    this.url = '/api/employees/all';
   }
 
   get(): Observable<Employee[]> {
