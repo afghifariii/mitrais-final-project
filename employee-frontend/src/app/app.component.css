@@ -1,6 +1,7 @@
 #navigation {
   position: fixed;
   z-index: 10;
+  background-color: #0072C6;
 }
 
 #content {
@@ -8,7 +9,7 @@
 }
 
 #list, #detail {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #addBtn {
