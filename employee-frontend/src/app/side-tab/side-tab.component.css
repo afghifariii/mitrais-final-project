@@ -1,0 +1,14 @@
+.top-bar-div {
+    box-sizing: border-box;
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    top: 0px;   
+    left: 0px;
+    padding: 1px 0px 0px 2px;
+    background-color: #34a0ed;
+}
+
+.nav-bar-icon {
+    padding: 5px 0px 0px 0px;
+}
