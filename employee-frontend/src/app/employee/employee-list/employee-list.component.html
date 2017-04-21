@@ -1,5 +1,7 @@
-<div class="emp-card" *ngFor="let employee of employees">
-  <!--<md-card *ngFor="let employee of employees">-->
+<employee-search></employee-search>
+<div class="scroll-bar-div">
+  <div class="emp-card" *ngFor="let employee of employees">
+    <!--<md-card *ngFor="let employee of employees">-->
     <img class="img-card" src="src/resources/images/no-image.png">
     <div class="card-left">
       <a class="emp-name">{{employee.firstName}} {{employee.lastName}}</a><br>
@@ -13,5 +15,7 @@
         <md-icon svgIcon="chevron_right"></md-icon>
       </div>
     </div>
-  <!--</md-card>-->
+    <!--</md-card>-->
+  </div>
 </div>
+<button md-fab class="floating-button"><md-icon svgIcon="add"></md-icon></button>

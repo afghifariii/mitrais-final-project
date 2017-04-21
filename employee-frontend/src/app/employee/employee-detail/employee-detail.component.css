@@ -1,0 +1,9 @@
+.content-bar-div {
+    box-sizing: border-box;
+    /*position: absolute;*/
+    height: auto;
+    widows: auto;
+    /*width: 100%;*/
+    padding: 10px;
+    /*top: 50px;*/
+}
