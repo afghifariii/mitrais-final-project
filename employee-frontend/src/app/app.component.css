@@ -8,8 +8,13 @@
   padding-top: 64px;
 }
 
-#list, #detail {
+#list {
   overflow-y: auto;
+  height: 100vh;
+}
+
+#detail {
+  height: 100vh;
 }
 
 #addBtn {

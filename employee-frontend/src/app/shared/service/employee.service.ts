@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import { Employee } from './employee.model';
+import { Employee } from '../model/employee.model';
 
 @Injectable()
 export class EmployeeService {

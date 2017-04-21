@@ -1,4 +1,4 @@
-import { Location } from '../location/location.model';
+import { Location } from './location.model';
 
 export class Employee {
     constructor(

@@ -5,31 +5,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdToolbarModule, MdGridListModule, MdButtonModule, MdIconModule, MdCardModule } from '@angular/material';
+import { MdToolbarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { LocationComponent } from './location/location.component';
 
-import { EmployeeService } from "./employee/employee.service";
-import { LocationService } from "./location/location.service";
+import { EmployeeService } from "./shared/service/employee.service";
+import { LocationService } from "./shared/service/location.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent,
-    LocationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     MdToolbarModule,
-    MdGridListModule,
-    MdButtonModule,
-    MdIconModule,
     BrowserAnimationsModule,
-    MdCardModule,
     FlexLayoutModule
   ],
   providers: [EmployeeService, LocationService],
