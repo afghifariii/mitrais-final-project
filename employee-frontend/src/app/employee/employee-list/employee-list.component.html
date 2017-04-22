@@ -17,8 +17,7 @@
     </div>
 </div>
 <div class="scroll-bar-div">
-  <div class="emp-card" *ngFor="let employee of employees">
-    <!--<md-card *ngFor="let employee of employees">-->
+  <div class="emp-card" *ngFor="let employee of employees" (click)="onSelect(employee)">
     <img class="img-card" src="src/resources/images/no-image.png">
     <div class="card-left">
       <a class="emp-name">{{employee.firstName}} {{employee.lastName}}</a><br>
