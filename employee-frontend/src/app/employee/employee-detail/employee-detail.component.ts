@@ -16,6 +16,7 @@ import { Location } from "../../location/location.model";
 export class EmployeeDetailComponent implements OnInit {
 
   @Input() employee;
+  
   private locations: Location[];
   private form;
 
@@ -39,7 +40,7 @@ export class EmployeeDetailComponent implements OnInit {
       firstName: this.formBuilder.control(this.employee.firstName),
       lastName: this.formBuilder.control(this.employee.lastName),
       gender: this.formBuilder.control(this.employee.gender),
-      dob: this.formBuilder.control(this.employee.dob),
+      dateOfBirth: this.formBuilder.control(this.employee.dateOfBirth),
       nationality: this.formBuilder.control(this.employee.nationality),
       maritalStatus: this.formBuilder.control(this.employee.maritalStatus),
       phone: this.formBuilder.control(this.employee.phone),
