@@ -46,7 +46,7 @@ public class EmployeeController {
 		employeeRepo.save(emp);
 	}
 	
-	@DeleteMapping("employees/{id}")
+	@DeleteMapping("/employees/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteEmployee(@PathVariable("id") String id){
 		employeeRepo.delete(id);

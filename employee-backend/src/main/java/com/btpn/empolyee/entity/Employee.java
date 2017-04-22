@@ -48,8 +48,8 @@ public class Employee {
 	private String nationality;
 	
 	@NotNull @NotEmpty
-	@Column(name = "martial_status", length = 7, nullable = false)
-	private String martialStatus;
+	@Column(name = "marital_status", length = 7, nullable = false)
+	private String maritalStatus;
 	
 	@NotNull @NotEmpty
 	@Column(length = 15, nullable = false, unique = true)
@@ -98,7 +98,7 @@ public class Employee {
 	}
 
 	public Employee(String empId, String firstName, String lastName, String gender, Date dateOfBirth, String nationality,
-			String martialStatus, String phone, String email, Date hiredDate, Date suspendDate, String division,
+			String maritalStatus, String phone, String email, Date hiredDate, Date suspendDate, String division,
 			String grade, String subDivision, String status, String photo, Location location) {
 		super();
 		this.empId = empId;
@@ -107,7 +107,7 @@ public class Employee {
 		this.gender = gender;
 		this.dateOfBirth = dateOfBirth;
 		this.nationality = nationality;
-		this.martialStatus = martialStatus;
+		this.maritalStatus = maritalStatus;
 		this.phone = phone;
 		this.email = email;
 		this.hiredDate = hiredDate;
@@ -168,12 +168,12 @@ public class Employee {
 		this.nationality = nationality;
 	}
 
-	public String getMartialStatus() {
-		return martialStatus;
+	public String getmaritalStatus() {
+		return maritalStatus;
 	}
 
-	public void setMartialStatus(String martialStatus) {
-		this.martialStatus = martialStatus;
+	public void setmaritalStatus(String maritalStatus) {
+		this.maritalStatus = maritalStatus;
 	}
 
 	public String getPhone() {
