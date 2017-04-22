@@ -23,7 +23,7 @@ export class EmployeeService {
     let body = JSON.stringify(employee);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    let url = "/api/employees/all";
+    let url = "/api/employees/";
 
     return this.http.post(url, body, options)
       .map(response => response.json());
