@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { MdButtonModule, MdIconModule, MdInputModule, MdChipsModule, MdTabsModule } from "@angular/material";
+import { MdButtonModule, MdIconModule, MdInputModule, MdChipsModule, MdTabsModule, MdProgressSpinnerModule } from "@angular/material";
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { EmployeeListComponent } from "./employee/employee-list/employee-list.component";
@@ -36,6 +36,7 @@ import { SideTabComponent } from './side-tab/side-tab.component';
     MdInputModule, 
     MdChipsModule, 
     MdTabsModule,
+    MdProgressSpinnerModule,
     FlexLayoutModule,
     BrowserAnimationsModule
   ],

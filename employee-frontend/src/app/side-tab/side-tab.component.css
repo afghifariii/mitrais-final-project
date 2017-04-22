@@ -6,9 +6,15 @@
     top: 0px;   
     left: 0px;
     padding: 1px 0px 0px 2px;
-    background-color: #34a0ed;
+    background-color: #3371ff;
 }
 
 .nav-bar-icon {
     padding: 5px 0px 0px 0px;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
