@@ -44,7 +44,7 @@ export class EmployeeDetailComponent implements OnInit {
       nationality: this.formBuilder.control(this.employee.nationality),
       maritalStatus: this.formBuilder.control(this.employee.maritalStatus),
       phone: this.formBuilder.control(this.employee.phone),
-      location: this.formBuilder.control(this.employee.location),
+      location: this.formBuilder.control(this.employee.location.id),
       subDivision: this.formBuilder.control(this.employee.subDivision),
       status: this.formBuilder.control(this.employee.status),
       suspendDate: this.formBuilder.control(this.employee.suspendDate),
@@ -56,7 +56,7 @@ export class EmployeeDetailComponent implements OnInit {
   }
   
   add(employee) {
-    this.employeeService.post(employee)
+    this.employeeService.add(employee)
       .subscribe(response => this.employee = response);
   }
 

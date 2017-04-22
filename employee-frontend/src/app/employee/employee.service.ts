@@ -9,6 +9,8 @@ import { Employee } from './employee.model';
 @Injectable()
 export class EmployeeService {
 
+  private emplo
+
   constructor(private http: Http) {
 
   }
@@ -19,13 +21,10 @@ export class EmployeeService {
       .map(response => response.json());
   }
 
-  post(employee): Observable<Employee> {
-    let body = JSON.stringify(employee);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+  add(employee: Employee): Observable<Employee> {
     let url = "/api/employees/";
 
-    return this.http.post(url, body, options)
+    return this.http.post(url, employee)
       .map(response => response.json());
   }
 
