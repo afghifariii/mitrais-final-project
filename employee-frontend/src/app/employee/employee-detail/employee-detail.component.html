@@ -1,1 +1,77 @@
-<div class="content-bar-div">This is Content</div>
+<div class="content-bar-div">
+    <md-card>
+
+        <form [formGroup]="form" (ngSubmit)="add(form.value)" fxLayout="row">
+
+            <div fxFlex="50%">
+                <input type="hidden" name="id" id="id" formControlName="id">
+
+                <md-input-container>
+                    <input name="firstName" id="firstName" mdInput placeholder="First Name" formControlName="firstName">
+                </md-input-container>
+
+                <md-input-container>
+                    <input name="lastName" id="lastName" mdInput placeholder="Last Name" formControlName="lastName">
+                </md-input-container>
+
+                <md-input-container>
+                    <input name="gender" id="gender" mdInput placeholder="Gender" formControlName="gender">
+                </md-input-container>
+
+                <md-input-container>
+                    <input name="dob" id="dob" mdInput type="date" placeholder="Date of Birth" formControlName="dob">
+                </md-input-container>
+
+                <md-input-container>
+                    <input name="nationality" id="nationality" mdInput placeholder="Nationality" formControlName="nationality">
+                </md-input-container>
+
+                <md-input-container>
+                    <input name="maritalStatus" id="maritalStatus" mdInput placeholder="Marital Status" formControlName="maritalStatus">
+                </md-input-container>
+
+                <md-input-container>
+                    <input name="phone" id="phone" mdInput type="tel" placeholder="Phone" formControlName="phone">
+                </md-input-container>
+
+                <md-select name="location" id="location" placeholder="location" formControlName="location">
+                    <md-option *ngFor="let l of locations" [value]="l.id">{{ l.city }}</md-option>
+                </md-select>
+            </div>
+
+            <div fxFlex="50%">
+                <md-input-container>
+                    <input name="subDivision" id="subDivision" mdInput placeholder="Sub Division" formControlName="subDivision">
+                </md-input-container>
+
+                <md-input-container>
+                    <input name="status" id="status" mdInput placeholder="Status" formControlName="status">
+                </md-input-container>
+
+                <md-input-container>
+                    <input name="suspendDate" id="suspendDate" mdInput type="date" placeholder="Suspend Date" formControlName="suspendDate">
+                </md-input-container>
+
+                <md-input-container>
+                    <input name="hiredDate" id="hiredDate" mdInput type="date" placeholder="Hired Date" formControlName="hiredDate">
+                </md-input-container>
+
+                <md-input-container>
+                    <input name="grade" id="grade" mdInput placeholder="Grade" formControlName="grade">
+                </md-input-container>
+
+                <md-input-container>
+                    <input name="division" id="division" mdInput placeholder="Division" formControlName="division">
+                </md-input-container>
+
+                <md-input-container>
+                    <input name="email" id="email" mdInput type="email" placeholder="E-mail" formControlName="email">
+                </md-input-container>
+
+                <button md-button type="submit" [disabled]="!form.valid" color="primary">Save</button>
+                <button md-button>Cancel</button>
+            </div>
+
+        </form>
+    </md-card>
+</div>
