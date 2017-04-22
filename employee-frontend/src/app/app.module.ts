@@ -3,8 +3,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { MdButtonModule, MdIconModule, MdInputModule, MdChipsModule, MdTabsModule, MdProgressSpinnerModule } from "@angular/material";
+import { MdButtonModule, MdIconModule, MdInputModule, MdChipsModule, MdTabsModule, MdProgressSpinnerModule, MdSelectModule } from "@angular/material";
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { EmployeeListComponent } from "./employee/employee-list/employee-list.component";
@@ -14,7 +15,6 @@ import { AppComponent } from './app.component';
 import { EmployeeService } from "./employee/employee.service";
 import { LocationService } from "./location/location.service";
 import { BtnSvgComponent } from './btn-svg/btn-svg.component';
-import { SideTabComponent } from './side-tab/side-tab.component';
 
 
 @NgModule({
@@ -22,15 +22,16 @@ import { SideTabComponent } from './side-tab/side-tab.component';
     AppComponent,
     EmployeeListComponent,
     EmployeeDetailComponent,
-    BtnSvgComponent,
-    SideTabComponent
+    BtnSvgComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     MdButtonModule, 
-    MdIconModule, 
+    MdIconModule,
+    MdSelectModule, 
     MdInputModule, 
     MdChipsModule, 
     MdTabsModule,

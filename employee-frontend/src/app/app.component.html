@@ -16,12 +16,66 @@
 
 <div class="main-div">
   <div class="left-div">
-    <employee-list></employee-list>
+    <employee-list (show)="onSelected($event)"></employee-list>
   </div>
 
   <div class="right-div">
-    <side-tab></side-tab>
-    <employee-detail></employee-detail>
+    <div class="top-bar-div">
+      <md-tab-group>
+        <md-tab>
+          <ng-template md-tab-label>
+            <md-icon svgIcon="person" class="nav-bar-icon"></md-icon>
+          </ng-template>
+          <employee-detail [employee]="selectedEmployee" *ngIf="selectedEmployee"></employee-detail>
+        </md-tab>
+        <md-tab>
+          <ng-template md-tab-label>
+            <md-icon svgIcon="restore" class="nav-bar-icon"></md-icon>
+          </ng-template>
+          <div class="spinner">
+            <md-spinner></md-spinner>
+            <h1>This Is A Dummy Tab</h1>
+          </div>
+        </md-tab>
+        <md-tab>
+          <ng-template md-tab-label>
+            <md-icon svgIcon="layers" class="nav-bar-icon"></md-icon>
+          </ng-template>
+          <div class="spinner">
+            <md-spinner></md-spinner>
+            <h1>This Is A Dummy Tab</h1>
+          </div>
+        </md-tab>
+        <md-tab>
+          <ng-template md-tab-label>
+            <md-icon svgIcon="people" class="nav-bar-icon"></md-icon>
+          </ng-template>
+          <div class="spinner">
+            <md-spinner></md-spinner>
+            <h1>This Is A Dummy Tab</h1>
+          </div>
+
+        </md-tab>
+        <md-tab>
+          <ng-template md-tab-label>
+            <md-icon svgIcon="home" class="nav-bar-icon"></md-icon>
+          </ng-template>
+          <div class="spinner">
+            <md-spinner></md-spinner>
+            <h1>This Is A Dummy Tab</h1>
+          </div>
+        </md-tab>
+        <md-tab>
+          <ng-template md-tab-label>
+            <md-icon svgIcon="location" class="nav-bar-icon"></md-icon>
+          </ng-template>
+          <div class="spinner">
+            <md-spinner></md-spinner>
+            <h1>This Is A Dummy Tab</h1>
+          </div>
+        </md-tab>
+      </md-tab-group>
+    </div>
   </div>
 </div>
 
