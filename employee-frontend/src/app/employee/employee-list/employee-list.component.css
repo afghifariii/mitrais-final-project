@@ -2,6 +2,37 @@
   width: 100%;
   height: 100%;
 }
+
+.top-bar-div {
+    box-sizing: border-box;
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    top: 0px;   
+    left: 0px;
+    background-color: #5c6bc0;
+    color: white;
+}
+
+.search-text {
+    width: 125px;
+}
+
+.left-search-menu {
+    float: left;
+    padding: 5px 0px 0px 0px;
+}
+
+.right-search-menu {
+    float: right;
+    padding: 5px 0px 0px 0px;
+}
+
+.search-chip {
+    float: right;
+    padding: 9px 0px 0px 0px;
+}
+
 .scroll-bar-div {
   box-sizing: border-box;
   position: absolute;
@@ -18,6 +49,7 @@
   position: absolute;
   right: 20px;
   bottom: 10px;
+  background-color: #e91e63;
 }
 
 ::-webkit-scrollbar { 

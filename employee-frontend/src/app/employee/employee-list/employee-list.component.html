@@ -1,4 +1,21 @@
-<employee-search></employee-search>
+<div class="top-bar-div">
+    <div class="left-search-menu">
+        <button md-icon-button><md-icon svgIcon="search"></md-icon></button>
+    </div>
+    <md-input-container>
+        <input mdInput class="search-text" placeholder="Search" value="" >
+    </md-input-container>
+    <div class="search-chip">
+        <md-chip-list>
+            <md-chip>999999</md-chip>
+        </md-chip-list>
+    </div>
+    <div class="right-search-menu">
+        <button md-icon-button><md-icon svgIcon="delete"></md-icon></button>
+        <button md-icon-button><md-icon svgIcon="sort"></md-icon></button>
+        <button md-icon-button><md-icon svgIcon="filter"></md-icon></button>
+    </div>
+</div>
 <div class="scroll-bar-div">
   <div class="emp-card" *ngFor="let employee of employees">
     <!--<md-card *ngFor="let employee of employees">-->
