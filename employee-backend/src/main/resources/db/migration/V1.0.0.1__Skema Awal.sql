@@ -11,7 +11,7 @@ create table t_employee (
     gender varchar(6) not null,
     date_of_birth date not null,
     nationality varchar(45) not null,
-    martial_status varchar(7) not null,
+    marital_status varchar(7) not null,
     phone varchar(15) not null unique,
     email varchar(50) not null unique,
     hired_date date not null,
