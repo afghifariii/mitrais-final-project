@@ -9,14 +9,13 @@ import { Employee } from './employee.model';
 @Injectable()
 export class EmployeeService {
 
-  private url;
-
   constructor(private http: Http) {
-    this.url = '/api/employees/all';
+    
   }
 
   get(): Observable<Employee[]> {
-    return this.http.get(this.url)
+    let url = "/api/employees/all";
+    return this.http.get(url)
       .map(response => response.json());
   }
 
