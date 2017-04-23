@@ -26,7 +26,7 @@
           <ng-template md-tab-label>
             <md-icon svgIcon="person" class="nav-bar-icon"></md-icon>
           </ng-template>
-          <employee-detail [employee]="selectedEmployee" *ngIf="selectedEmployee"></employee-detail>
+          <employee-detail [employee]="selectedEmployee" [location]="selectedLocation" *ngIf="selectedEmployee"></employee-detail>
         </md-tab>
         <md-tab>
           <ng-template md-tab-label>

@@ -35,7 +35,7 @@
                 </md-input-container>
 
                 <md-select name="location" id="location" placeholder="location" formControlName="location">
-                    <md-option *ngFor="let l of locations" [value]="l.id">{{ l.city }}</md-option>
+                    <md-option *ngFor="let l of locations" [value]="l.id" (click)="onChange(l)">{{ l.city }}</md-option>
                 </md-select>
             </div>
 

@@ -7,9 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   private selectedEmployee;
+  private selectedLocation;
 
   onSelected(employee) {
     this.selectedEmployee = employee;
+    this.selectedLocation = employee.location;
     
 }
 }
