@@ -1,10 +1,10 @@
 <div class="content-bar-div">
     <md-card>
 
-        <form [formGroup]="form" (ngSubmit)="add(form.value)" fxLayout="row">
+        <form [formGroup]="form" (ngSubmit)="save(form.value)" fxLayout="row">
 
             <div fxFlex="50%">
-                <input type="hidden" name="id" id="id" formControlName="id">
+                <input type="hidden" name="empId" id="empId" formControlName="empId">
 
                 <md-input-container>
                     <input name="firstName" id="firstName" mdInput placeholder="First Name" formControlName="firstName">

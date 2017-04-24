@@ -23,8 +23,19 @@ export class EmployeeService {
 
   add(employee: Employee): Observable<Employee> {
     let url = "/api/employees/";
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
 
-    return this.http.post(url, employee)
+    return this.http.post(url, JSON.stringify(employee), {headers: headers})
+      .map(response => response.json());
+  }
+
+  put(employee: Employee): Observable<Employee> {
+    let url = "/api/employees/" + employee.empId;
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.put(url, JSON.stringify(employee), {headers: headers})
       .map(response => response.json());
   }
 

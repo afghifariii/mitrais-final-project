@@ -36,7 +36,7 @@ export class EmployeeDetailComponent implements OnInit {
 
   validation() {
     this.form = this.formBuilder.group({
-      id: this.formBuilder.control(this.employee.id),
+      empId: this.formBuilder.control(this.employee.empId),
       firstName: this.formBuilder.control(this.employee.firstName),
       lastName: this.formBuilder.control(this.employee.lastName),
       gender: this.formBuilder.control(this.employee.gender),
@@ -54,12 +54,17 @@ export class EmployeeDetailComponent implements OnInit {
       email: this.formBuilder.control(this.employee.email),
     });
   }
-  
-  add(employee) {
+
+  save(employee) {
     employee.location = this.location;
     console.log(employee);
-    this.employeeService.add(employee)
+    if (!employee.empId) {
+      this.employeeService.add(employee)
+        .subscribe(response => this.employee = response);
+    }else{
+      this.employeeService.put(employee)
       .subscribe(response => this.employee = response);
+    }
   }
 
   onChange(location) {
