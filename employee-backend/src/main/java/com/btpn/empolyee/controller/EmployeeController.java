@@ -29,8 +29,8 @@ public class EmployeeController {
 	
 	@PostMapping("/employees/")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void saveEmployee(@RequestBody Employee emp){
-		employeeRepo.save(emp);
+	public Employee saveEmployee(@RequestBody Employee emp){
+		return employeeRepo.save(emp);
 	}
 	
 	@GetMapping("/employees/{id}")
@@ -41,9 +41,9 @@ public class EmployeeController {
 	
 	@PutMapping("/employees/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public void updateEmployee(@PathVariable("id") String id, @RequestBody Employee emp ){
+	public Employee updateEmployee(@PathVariable("id") String id, @RequestBody Employee emp ){
 		emp.setEmpId(id);
-		employeeRepo.save(emp);
+		return employeeRepo.save(emp);
 	}
 	
 	@DeleteMapping("/employees/{id}")
