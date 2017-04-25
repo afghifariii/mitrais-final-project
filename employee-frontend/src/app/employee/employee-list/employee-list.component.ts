@@ -1,7 +1,16 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { MdDialog, MdDialogRef } from '@angular/material';
 
 import { EmployeeService } from "../employee.service";
+import { AppService } from "../../app.service";
+
+import { EmployeeFilterComponent } from "../employee-filter/employee-filter.component";
+
 import { Employee } from "../employee.model";
+
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'employee-list',
@@ -9,19 +18,121 @@ import { Employee } from "../employee.model";
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-  @Output() show = new EventEmitter();
-  private employees: Employee[];
 
-  constructor(private employeeService: EmployeeService) { }
+  employees: Employee[];
+  selectedEmployee: Employee;
+  isEdited: boolean = false;
+  searchParam;
+  gender;
+  location;
+  sortDir = "asc";
+  isShow: boolean = false;
+  subscription: Subscription;
+
+  constructor(
+    private employeeService: EmployeeService,
+    private router: Router,
+    private appService: AppService,
+    private dialog: MdDialog
+    ) { }
 
   ngOnInit() {
     this.employeeService.get()
-      .subscribe(response => this.employees = response);
+      .subscribe(employees => this.employees = employees);
+
+    this.subscription = this.appService.notifyObservable$.subscribe((res) => {
+
+      if (res.hasOwnProperty('option') && res.option === 'refresh') {
+
+        this.getBy(this.searchParam, this.gender, this.location, this.sortDir);
+
+      } else if (res.hasOwnProperty('option') && res.option === 'refreshSelected') {
+
+        this.selectedEmployee = null;
+        this.isEdited = false;
+
+      } else if (res.hasOwnProperty('option') && res.option === 'refreshCancel') {
+
+        this.selectedEmployee = null;
+        this.isEdited = false;
+      }
+    });
   }
 
-  onSelect(employee) {
-    console.log(employee);
-    this.show.emit(employee);
+  getBy(searchParam, gender, location, sortDir) {
+    this.employeeService.getBy(searchParam, gender, location, sortDir)
+      .subscribe(response => {
+        this.employees = response;
+        if (this.employees.length == 0) {
+          this.isShow = true;
+        } else {
+          this.isShow = false;
+        }
+      })
+  }
+
+  onClick(employee) {
+    this.isEdited = true;
+    this.selectedEmployee = employee;
+    this.router.navigate(["/employees", employee.empId]);
+  }
+
+  onChange(event) {
+    this.searchParam = event.target.value;
+    this.getBy(this.searchParam, this.gender, this.location, this.sortDir);
+  }
+
+  sortEmployee() {
+    if (this.sortDir == "asc") {
+      this.sortDir = "desc";
+    } else {
+      this.sortDir = "asc";
+    }
+    this.getBy(this.searchParam, this.gender, this.location, this.sortDir);
+  }
+
+  delete() {
+    this.employeeService.delete(this.selectedEmployee.empId)
+      .subscribe(empId => {
+        this.selectedEmployee = null;
+        this.isEdited = false;
+        this.router.navigate(['/employees/']);
+        this.getBy(this.searchParam, this.gender, this.location, this.sortDir);
+      });
+  }
+
+  ngOnDestroy() {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.subscription.unsubscribe();
+  }
+
+  filter(){
+    let dialogRef = this.dialog.open(EmployeeFilterComponent, {
+      height: '400px',
+      width: '600px',
+    });
+    if (this.gender != "") {
+      dialogRef.componentInstance.gender = this.gender;
+      dialogRef.componentInstance.tempGender = this.gender;
+      dialogRef.componentInstance.genderDisabled = true;
+    }
+    if (this.location != "") {
+      dialogRef.componentInstance.location = this.location;
+      dialogRef.componentInstance.tempLocation = this.location;
+      dialogRef.componentInstance.locationDisabled = true;
+    }
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != undefined) {
+        if (result.action == "filter") {
+          this.location = result.locValue;
+          this.gender = result.genderValue;
+          this.getBy(this.searchParam, this.gender, this.location, this.sortDir);
+        }
+      }
+
+    });
+
   }
 
 }

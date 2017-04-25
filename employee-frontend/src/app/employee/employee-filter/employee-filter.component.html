@@ -1,0 +1,21 @@
+<h1 md-dialog-title>Employee Filter</h1>
+<div md-dialog-content>
+    <md-checkbox (click)="onGenderCbClick()" [(ngModel)]="genderDisabled"></md-checkbox>
+    <md-select placeholder="Gender" name="genderSelect" [disabled]="!genderDisabled" [(ngModel)]="tempGender" (change)="onGenderChange($event)">
+        <md-option *ngFor="let gender of genderArr" [value]="gender">
+            {{gender}}
+        </md-option>
+    </md-select>
+</div>
+<div md-dialog-content>
+    <md-checkbox (click)="onLocationCbClick()" [(ngModel)]="locationDisabled"></md-checkbox>
+    <md-select placeholder="Location" name="location" [disabled]="!locationDisabled" [(ngModel)]="tempLocation"  (change)="onLocationChange($event)">
+        <md-option *ngFor="let location of locations" [value]="location.id">
+            {{location.city}}
+        </md-option>
+    </md-select>
+</div>
+<div md-dialog-actions>
+    <button md-button (click)="dialogRef.close({action:'filter',locValue:location.id,genderValue:gender})">Filter</button>
+    <button md-button (click)="dialogRef.close({action:'cancel'})">Cancel</button>
+</div>

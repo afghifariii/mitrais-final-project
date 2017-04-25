@@ -55,7 +55,7 @@
 ::-webkit-scrollbar { 
     display: block; 
 }
-.emp-card {
+/*.emp-card {
   box-sizing: border-box;
   width: 375px;
   height: 82px;
@@ -95,4 +95,4 @@
 
 .emp-info {
   font-size: 14px;
-}
+}*/

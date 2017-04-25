@@ -3,21 +3,27 @@
         <button md-icon-button><md-icon svgIcon="search"></md-icon></button>
     </div>
     <md-input-container>
-        <input mdInput class="search-text" placeholder="Search" value="" >
+        <input mdInput class="search-text" placeholder="Search" (keyup)="onChange($event)">
     </md-input-container>
     <div class="search-chip">
         <md-chip-list>
-            <md-chip>999999</md-chip>
+            <md-chip>{{employees == null ? 0 : employees.length}}</md-chip>
         </md-chip-list>
     </div>
     <div class="right-search-menu">
-        <button md-icon-button><md-icon svgIcon="delete"></md-icon></button>
-        <button md-icon-button><md-icon svgIcon="sort"></md-icon></button>
-        <button md-icon-button><md-icon svgIcon="filter"></md-icon></button>
+        <button md-icon-button (click)="delete()" *ngIf="isEdited"><md-icon svgIcon="delete"></md-icon></button>
+        <button md-icon-button (click)="sortEmployee()"><md-icon svgIcon="sort"></md-icon></button>
+        <button md-icon-button (click)="filter()"><md-icon svgIcon="filter"></md-icon></button>
     </div>
 </div>
 <div class="scroll-bar-div">
-  <div class="emp-card" *ngFor="let employee of employees" (click)="onSelect(employee)">
+    <div *ngIf="!isShow">
+        <employee-item *ngFor="let e of employees" [employee]="e" (click)=onClick(e) [selectedEmployee]="selectedEmployee"></employee-item>
+    </div>
+    <div *ngIf="isShow">
+        We couldn't find what you're looking for
+    </div>
+    <!--<div class="emp-card" *ngFor="let employee of employees" (click)="onSelect(employee)">
     <img class="img-card" src="src/resources/images/no-image.png">
     <div class="card-left">
       <a class="emp-name">{{employee.firstName}} {{employee.lastName}}</a><br>
@@ -31,7 +37,6 @@
         <md-icon svgIcon="chevron_right"></md-icon>
       </div>
     </div>
-    <!--</md-card>-->
-  </div>
+  </div>-->
 </div>
 <button md-fab class="floating-button"><md-icon svgIcon="add"></md-icon></button>

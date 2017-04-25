@@ -1,0 +1,15 @@
+<div class="emp-card" *ngFor="let employee of employees" (click)="onSelect(employee)">
+  <img class="img-card" [src]="setImage()">
+  <div class="card-left">
+    <a class="emp-name">{{employee.firstName}} {{employee.lastName}}</a><br>
+    <a class="emp-info">{{employee.grade}}, {{employee.division}}<br>
+                            {{employee.location.city}}, {{employee.phone}}</a>
+  </div>
+  <div class="card-right">
+    <a class="emp-info">{{employee.hiredDate | date:'dd-MM-y'}}</a><br>
+    <div class="card-right-icon">
+      <md-icon svgIcon="radio_button_checked"></md-icon>
+      <md-icon svgIcon="chevron_right"></md-icon>
+    </div>
+  </div>
+</div>
