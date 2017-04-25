@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms'
 
 import { EmployeeService } from "../employee.service";
@@ -13,10 +13,10 @@ import { Location } from "../../location/location.model";
   templateUrl: './employee-detail.component.html',
   styleUrls: ['./employee-detail.component.css']
 })
-export class EmployeeDetailComponent implements OnInit {
+export class EmployeeDetailComponent implements OnInit, OnChanges {
 
-  @Input() employee;
-  @Input() location;
+  @Input() employee: Employee;
+  @Input() location: Location;
   private locations: Location[];
   private form;
 
@@ -30,9 +30,22 @@ export class EmployeeDetailComponent implements OnInit {
     this.locationService.get()
       .subscribe(response => this.locations = response);
 
+    this.employeeService.getOne(this.employee)
+    .subscribe(res => this.employee = res);
+
     this.validation();
 
   }
+
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    //Add 'implements OnChanges' to the class.
+    this.employeeService.getOne(changes.employee.currentValue)
+    .subscribe(res => this.employee = res);
+
+    this.validation();
+  }
+
 
   validation() {
     this.form = this.formBuilder.group({
@@ -58,17 +71,14 @@ export class EmployeeDetailComponent implements OnInit {
   save(employee) {
     employee.location = this.location;
     console.log(employee);
+
     if (!employee.empId) {
       this.employeeService.add(employee)
         .subscribe(response => this.employee = response);
-    }else{
+    } else {
       this.employeeService.put(employee)
-      .subscribe(response => this.employee = response);
+        .subscribe(response => this.employee = response);
     }
-  }
-
-  onChange(location) {
-    this.location = location;
   }
 
 }

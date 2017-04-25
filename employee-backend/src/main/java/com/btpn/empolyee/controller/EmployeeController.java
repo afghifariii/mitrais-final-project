@@ -25,7 +25,7 @@ public class EmployeeController {
 	@GetMapping("/employees/all")
 	@ResponseStatus(HttpStatus.OK)
 	public Iterable<Employee> allEmployees() {
-		Sort.Order sorting = new Sort.Order(Sort.Direction.ASC, "lastName").ignoreCase();
+		Sort.Order sorting = new Sort.Order(Sort.Direction.ASC, "lastName");
 		return employeeRepo.findAll(new Sort(sorting));
 	}
 

@@ -8,7 +8,7 @@ export class Employee {
         public gender: string,
         public dateOfBirth: Date,
         public nationality: string,
-        public martialStatus: string,
+        public maritalStatus: string,
         public phone: string,
         public email: string,
         public hiredDate: Date,

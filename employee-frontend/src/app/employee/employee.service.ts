@@ -9,7 +9,7 @@ import { Employee } from './employee.model';
 @Injectable()
 export class EmployeeService {
 
-  private emplo
+  private employee: Employee;
 
   constructor(private http: Http) {
 
@@ -21,12 +21,18 @@ export class EmployeeService {
       .map(response => response.json());
   }
 
+  getOne(employee: Employee): Observable<Employee> {
+    let url = "/api/employees/" + employee.empId;
+    return this.http.get(url)
+      .map(response => response.json());
+  }
+
   add(employee: Employee): Observable<Employee> {
     let url = "/api/employees/";
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    return this.http.post(url, JSON.stringify(employee), {headers: headers})
+    return this.http.post(url, JSON.stringify(employee), { headers: headers })
       .map(response => response.json());
   }
 
@@ -35,7 +41,7 @@ export class EmployeeService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    return this.http.put(url, JSON.stringify(employee), {headers: headers})
+    return this.http.put(url, JSON.stringify(employee), { headers: headers })
       .map(response => response.json());
   }
 
