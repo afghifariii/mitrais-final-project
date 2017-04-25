@@ -13,18 +13,18 @@ public interface EmployeeRepository extends PagingAndSortingRepository<Employee,
 	public Iterable<Employee> findByFirstNameContainingOrLastNameContainingAllIgnoreCase(
 			@Param("firstName") String firstName, @Param("lastName") String lastName, @Param(value = "asc") Sort sort);
 
-	@Query("select e from Employee e where (UPPER(e.lastName) like %:lastName% or UPPER(e.firstName) like %:firstName%)"
-			+ "and UPPER(e.gender)=:gender")
+	@Query("select e from Employee e where (LOWER(e.lastName) like %:lastName% or LOWER(e.firstName) like %:firstName%)"
+			+ "and LOWER(e.gender)=:gender")
 	public Iterable<Employee> findByGenderAndSort(@Param("firstName") String firstName,
 			@Param("lastName") String lastName, @Param("gender") String gender, @Param(value = "asc") Sort sort);
 
-	@Query("select e from Employee e where (UPPER(e.lastName) like %:lastName% or UPPER(e.firstName) like %:firstName%)"
-			+ "and UPPER(e.location.id)=:location")
+	@Query("select e from Employee e where (LOWER(e.lastName) like %:lastName% or LOWER(e.firstName) like %:firstName%)"
+			+ "and e.location.id=:location")
 	public Iterable<Employee> findByLocationAndSort(@Param("firstName") String firstName,
 			@Param("lastName") String lastName, @Param("location") String location, @Param(value = "asc") Sort sort);
 
-	@Query("select e from Employee e where (UPPER(e.lastName) like %:lastName% or UPPER(e.firstName) like %:firstName%)"
-			+ "and UPPER(e.gender)=:gender and UPPER(e.location.id)=:location")
+	@Query("select e from Employee e where (LOWER(e.lastName) like %:lastName% or LOWER(e.firstName) like %:firstName%)"
+			+ "and LOWER(e.gender)=:gender and e.location.id=:location")
 	public Iterable<Employee> findByLocationGenderAndSort(@Param("firstName") String firstName,
 			@Param("lastName") String lastName, @Param("gender") String gender, @Param("location") String location,
 			@Param(value = "asc") Sort sort);

@@ -51,17 +51,17 @@ public class EmployeeController {
 			
 		} else if (gender.equals("") && !location.equals("")) {
 			
-			return employeeRepo.findByLocationAndSort(firstName.toUpperCase(), lastName.toUpperCase(),
-					location.toUpperCase(), new Sort(sorting));
+			return employeeRepo.findByLocationAndSort(firstName.toUpperCase(), lastName.toLowerCase(),
+					location, new Sort(sorting));
 			
 		} else if (!gender.equals("") && location.equals("")) {
 			
-			return employeeRepo.findByGenderAndSort(firstName.toUpperCase(), lastName.toUpperCase(),
-					gender.toUpperCase(), new Sort(sorting));
+			return employeeRepo.findByGenderAndSort(firstName.toLowerCase(), lastName.toLowerCase(),
+					gender.toLowerCase(), new Sort(sorting));
 			
 		} else {
 			return employeeRepo.findByLocationGenderAndSort(firstName.toUpperCase(), lastName.toUpperCase(),
-					gender.toUpperCase(), location.toUpperCase(), new Sort(sorting));
+					gender.toLowerCase(), location, new Sort(sorting));
 		}
 	}
 
