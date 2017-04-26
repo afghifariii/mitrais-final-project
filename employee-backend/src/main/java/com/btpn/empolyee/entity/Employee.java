@@ -52,7 +52,7 @@ public class Employee {
 	private String maritalStatus;
 	
 	@NotNull @NotEmpty
-	@Column(length = 15, nullable = false, unique = true)
+	@Column(length = 25, nullable = false, unique = true)
 	private String phone;
 	
 	@NotNull @NotEmpty
