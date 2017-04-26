@@ -16,6 +16,6 @@
     </md-select>
 </div>
 <div md-dialog-actions class="footer">
-    <button md-button (click)="dialogRef.close({action:'filter',locValue:location,genderValue:gender})">Filter</button>
-    <button md-button (click)="dialogRef.close({action:'cancel'})">Cancel</button>
+    <button md-raised-button class="ok-btn" (click)="dialogRef.close({action:'filter',locValue:location,genderValue:gender})">Filter</button>
+    <button md-raised-button (click)="dialogRef.close({action:'cancel'})">Cancel</button>
 </div>

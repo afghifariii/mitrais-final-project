@@ -18,3 +18,8 @@ md-select, md-checkbox{
     justify-content: center;
     align-items: center;
 }
+
+.ok-btn {
+    background-color: #3f51b5;
+    margin-right: 20px;
+}

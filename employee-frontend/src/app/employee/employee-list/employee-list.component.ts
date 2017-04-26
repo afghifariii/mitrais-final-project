@@ -102,8 +102,8 @@ export class EmployeeListComponent implements OnInit {
 
   delete() {
     let dialogRef = this.dialog.open(EmployeeConfirmComponent, {
-      height: '200px',
-      width: '360px',
+      height: '150px',
+      width: '400px',
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result != undefined) {

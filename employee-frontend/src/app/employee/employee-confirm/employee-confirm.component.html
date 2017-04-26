@@ -1,7 +1,7 @@
-<div md-dialog-content>
+<div md-dialog-content class="header">
   <h3>Are you sure to delete this Employee?</h3>
 </div>
-<div md-dialog-actions>
-    <button md-button (click)="dialogRef.close({action:'yes'})">Yes</button>
-    <button md-button (click)="dialogRef.close({action:'cancel'})">No</button>
+<div md-dialog-actions class="footer">
+    <button md-raised-button class="ok-btn" (click)="dialogRef.close({action:'yes'})">Yes</button>
+    <button md-raised-button (click)="dialogRef.close({action:'cancel'})">No</button>
 </div>
