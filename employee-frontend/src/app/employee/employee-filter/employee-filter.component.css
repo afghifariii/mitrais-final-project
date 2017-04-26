@@ -1,0 +1,20 @@
+.content{
+    /*margin: 15% auto;  15% from the top and centered */
+    box-sizing: border-box;
+    padding: 5px;
+    width: 85%; /* Could be more or less, depending on screen size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+md-select, md-checkbox{
+    height: 40px;
+    
+}
+
+.header, .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

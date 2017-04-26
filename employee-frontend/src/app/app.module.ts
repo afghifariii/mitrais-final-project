@@ -20,6 +20,7 @@ import { EmployeeFilterComponent } from './employee/employee-filter/employee-fil
 import { AppService } from './app.service';
 import { routing } from "./app.routing";
 import { EmployeeConfirmComponent } from './employee/employee-confirm/employee-confirm.component';
+import { Md2Module } from 'md2';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { EmployeeConfirmComponent } from './employee/employee-confirm/employee-c
     MdProgressSpinnerModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    routing
+    routing,
+    Md2Module.forRoot()
   ],
   providers: [EmployeeService, LocationService, AppService],
   bootstrap: [AppComponent]

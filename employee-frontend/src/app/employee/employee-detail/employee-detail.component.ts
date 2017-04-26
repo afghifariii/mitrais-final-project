@@ -25,6 +25,7 @@ export class EmployeeDetailComponent implements OnInit {
   private isEdited = false
   private empId;
   private empPhoto="";
+  genderArr = ["Male", "Female"];
 
   constructor(
     private employeeService: EmployeeService,
@@ -69,7 +70,7 @@ export class EmployeeDetailComponent implements OnInit {
 
   setValues() {
     this.form = this.formBuilder.group({
-      // empId: this.formBuilder.control(this.employee.empId),
+      empId: this.formBuilder.control(this.employee.empId),
       firstName: this.formBuilder.control(this.employee.firstName),
       lastName: this.formBuilder.control(this.employee.lastName),
       gender: this.formBuilder.control(this.employee.gender),
@@ -90,7 +91,7 @@ export class EmployeeDetailComponent implements OnInit {
 
   initValues() {
     this.form = this.formBuilder.group({
-      // empId: this.formBuilder.control(''),
+      empId: this.formBuilder.control(''),
       firstName: this.formBuilder.control(''),
       lastName: this.formBuilder.control(''),
       gender: this.formBuilder.control(''),

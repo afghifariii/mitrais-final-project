@@ -1,4 +1,4 @@
-<div *ngIf="!isShow" class ="select-message">
+<div *ngIf="!isShow" class="select-message">
     <h2>Please select employee or add new one</h2>
 </div>
 <div *ngIf="isShow" class="content-bar-div">
@@ -7,7 +7,7 @@
         <form [formGroup]="form" (ngSubmit)="save(form.value)" fxLayout="row">
 
             <div fxFlex="50%">
-                <!--<input type="hidden" name="empId" id="empId" formControlName="empId">-->
+                <input type="hidden" name="empId" id="empId" formControlName="empId">
 
                 <md-input-container>
                     <input name="firstName" id="firstName" mdInput placeholder="First Name" formControlName="firstName">
@@ -17,13 +17,17 @@
                     <input name="lastName" id="lastName" mdInput placeholder="Last Name" formControlName="lastName">
                 </md-input-container>
 
-                <md-input-container>
+                <!--<md-input-container>
                     <input name="gender" id="gender" mdInput placeholder="Gender" formControlName="gender">
-                </md-input-container>
+                </md-input-container>-->
+                <md-select name="gender" id="gender" placeholder="Gender" formControlName="gender">
+                    <md-option *ngFor="let g of genderArr" [value]="g">{{ g }}</md-option>
+                </md-select>
 
-                <md-input-container>
+                <!--<md-input-container>
                     <input name="dateOfBirth" id="dateOfBirth" mdInput type="date" placeholder="Date of Birth" formControlName="dateOfBirth">
-                </md-input-container>
+                </md-input-container>-->
+                <md2-datepicker name="dateOfBirth" id="dateOfBirth" mdInput type="date" placeholder="Date of Birth" formControlName="dateOfBirth"></md2-datepicker>
 
                 <md-input-container>
                     <input name="nationality" id="nationality" mdInput placeholder="Nationality" formControlName="nationality">
@@ -46,18 +50,24 @@
                 <md-input-container>
                     <input name="subDivision" id="subDivision" mdInput placeholder="Sub Division" formControlName="subDivision">
                 </md-input-container>
+                <!--<md2-datepicker name="subDivision" id="subDivision" mdInput placeholder="Sub Division" formControlName="subDivision"></md2-datepicker>-->
+
 
                 <md-input-container>
                     <input name="status" id="status" mdInput placeholder="Status" formControlName="status">
                 </md-input-container>
 
-                <md-input-container>
+                <!--<md-input-container>
                     <input name="suspendDate" id="suspendDate" mdInput type="date" placeholder="Suspend Date" formControlName="suspendDate">
-                </md-input-container>
+                </md-input-container>-->
+                <md2-datepicker name="suspendDate" id="suspendDate" mdInput type="date" placeholder="Suspend Date" formControlName="suspendDate"></md2-datepicker>
 
-                <md-input-container>
+
+                <!--<md-input-container>
                     <input name="hiredDate" id="hiredDate" mdInput type="date" placeholder="Hired Date" formControlName="hiredDate">
-                </md-input-container>
+                </md-input-container>-->
+                <md2-datepicker name="hiredDate" id="hiredDate" mdInput type="date" placeholder="Hired Date" formControlName="hiredDate"></md2-datepicker>
+
 
                 <md-input-container>
                     <input name="grade" id="grade" mdInput placeholder="Grade" formControlName="grade">

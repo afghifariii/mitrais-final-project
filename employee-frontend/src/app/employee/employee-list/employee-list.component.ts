@@ -129,8 +129,8 @@ export class EmployeeListComponent implements OnInit {
 
   filter() {
     let dialogRef = this.dialog.open(EmployeeFilterComponent, {
-      height: '400px',
-      width: '600px',
+      height: '300px',
+      width: '400px',
     });
     if (this.gender != "") {
       dialogRef.componentInstance.gender = this.gender;
