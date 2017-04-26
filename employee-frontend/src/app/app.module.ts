@@ -19,6 +19,7 @@ import { EmployeeItemComponent } from './employee/employee-item/employee-item.co
 import { EmployeeFilterComponent } from './employee/employee-filter/employee-filter.component';
 import { AppService } from './app.service';
 import { routing } from "./app.routing";
+import { EmployeeConfirmComponent } from './employee/employee-confirm/employee-confirm.component';
 
 
 @NgModule({
@@ -28,10 +29,12 @@ import { routing } from "./app.routing";
     EmployeeDetailComponent,
     BtnSvgComponent,
     EmployeeItemComponent,
-    EmployeeFilterComponent
+    EmployeeFilterComponent,
+    EmployeeConfirmComponent
   ],
   entryComponents: [
-    EmployeeFilterComponent
+    EmployeeFilterComponent,
+    EmployeeConfirmComponent
   ],
   imports: [
     BrowserModule,

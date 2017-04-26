@@ -7,6 +7,7 @@ import { EmployeeService } from "../employee.service";
 import { AppService } from "../../app.service";
 
 import { EmployeeFilterComponent } from "../employee-filter/employee-filter.component";
+import { EmployeeConfirmComponent } from "../employee-confirm/employee-confirm.component";
 
 import { Employee } from "../employee.model";
 import { Location } from "../../location/location.model";
@@ -37,14 +38,14 @@ export class EmployeeListComponent implements OnInit {
     private router: Router,
     private appService: AppService,
     private dialog: MdDialog
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.employeeService.get()
       .subscribe(employees => {
         this.employees = employees;
         console.log(employees);
-    });
+      });
 
     this.subscription = this.appService.notifyObservable$.subscribe((res) => {
 
@@ -100,13 +101,24 @@ export class EmployeeListComponent implements OnInit {
   }
 
   delete() {
-    this.employeeService.delete(this.selectedEmployee.empId)
-      .subscribe(empId => {
-        this.selectedEmployee = null;
-        this.isEdited = false;
-        this.router.navigate(['/employees/']);
-        this.getBy(this.searchParam, this.gender, this.location, this.sortDir);
-      });
+    let dialogRef = this.dialog.open(EmployeeConfirmComponent, {
+      height: '200px',
+      width: '360px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != undefined) {
+        if (result.action == "yes") {
+          this.employeeService.delete(this.selectedEmployee.empId)
+            .subscribe(empId => {
+              this.selectedEmployee = null;
+              this.isEdited = false;
+              this.router.navigate(['/employees/']);
+              this.getBy(this.searchParam, this.gender, this.location, this.sortDir);
+            });
+        }
+      }
+
+    });
   }
 
   ngOnDestroy() {
@@ -115,7 +127,7 @@ export class EmployeeListComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
-  filter(){
+  filter() {
     let dialogRef = this.dialog.open(EmployeeFilterComponent, {
       height: '400px',
       width: '600px',
