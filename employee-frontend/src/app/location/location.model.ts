@@ -1,5 +1,5 @@
 export class Location {
-    constructor(public id: string, public city: string) {
+    constructor(public id: string, public city?: string) {
 
     }
 }

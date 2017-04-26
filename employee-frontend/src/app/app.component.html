@@ -16,7 +16,8 @@
 
 <div class="main-div">
   <div class="left-div">
-    <employee-list (show)="onSelected($event)"></employee-list>
+    <employee-list></employee-list>
+    <!--<a routerLink="/employees/add" (click)="add()"><button md-fab class="floating-button" ><md-icon svgIcon="add"></md-icon></button></a>-->
   </div>
 
   <div class="right-div">
@@ -26,7 +27,7 @@
           <ng-template md-tab-label>
             <md-icon svgIcon="person" class="nav-bar-icon"></md-icon>
           </ng-template>
-          <employee-detail [employee]="selectedEmployee" [location]="selectedLocation"*ngIf="selectedEmployee"></employee-detail>
+          <router-outlet></router-outlet>
         </md-tab>
         <md-tab>
           <ng-template md-tab-label>

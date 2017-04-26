@@ -9,6 +9,7 @@ import { AppService } from "../../app.service";
 import { EmployeeFilterComponent } from "../employee-filter/employee-filter.component";
 
 import { Employee } from "../employee.model";
+import { Location } from "../../location/location.model";
 
 import { Subscription } from 'rxjs/Subscription';
 
@@ -21,16 +22,18 @@ export class EmployeeListComponent implements OnInit {
 
   employees: Employee[];
   selectedEmployee: Employee;
+  selectedLocation: Location;
   isEdited: boolean = false;
-  searchParam;
-  gender;
-  location;
+  searchParam = "";
+  gender = "";
+  location = "";
   sortDir = "asc";
   isShow: boolean = false;
   subscription: Subscription;
 
   constructor(
     private employeeService: EmployeeService,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     private appService: AppService,
     private dialog: MdDialog
@@ -38,7 +41,10 @@ export class EmployeeListComponent implements OnInit {
 
   ngOnInit() {
     this.employeeService.get()
-      .subscribe(employees => this.employees = employees);
+      .subscribe(employees => {
+        this.employees = employees;
+        console.log(employees);
+    });
 
     this.subscription = this.appService.notifyObservable$.subscribe((res) => {
 
@@ -60,6 +66,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   getBy(searchParam, gender, location, sortDir) {
+    console.log(searchParam, gender, location, sortDir)
     this.employeeService.getBy(searchParam, gender, location, sortDir)
       .subscribe(response => {
         this.employees = response;
@@ -74,6 +81,7 @@ export class EmployeeListComponent implements OnInit {
   onClick(employee) {
     this.isEdited = true;
     this.selectedEmployee = employee;
+    this.selectedLocation = employee.location;
     this.router.navigate(["/employees", employee.empId]);
   }
 

@@ -1,4 +1,4 @@
-<div class="emp-card" *ngFor="let employee of employees" (click)="onSelect(employee)">
+<div class="emp-card" [ngClass]="{'selected':isSelected(),'notSelected':!isSelected()}">
   <img class="img-card" [src]="setImage()">
   <div class="card-left">
     <a class="emp-name">{{employee.firstName}} {{employee.lastName}}</a><br>

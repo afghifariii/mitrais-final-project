@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http, Headers, RequestOptions, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Employee } from './employee.model';
+import { Location } from "../location/location.model";
 
 @Injectable()
 export class EmployeeService {
@@ -60,6 +61,13 @@ export class EmployeeService {
     let url = "/api/employees/" + employee.empId;
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
+
+    // const lc: Location = {
+    //   id: employee.location.id,
+    //   city: ''
+    // };
+
+    // employee.location = lc;
 
     return this.http.put(url, JSON.stringify(employee), { headers: headers })
       .map(response => response.json());

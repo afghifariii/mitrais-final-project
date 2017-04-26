@@ -4,7 +4,7 @@
         <form [formGroup]="form" (ngSubmit)="save(form.value)" fxLayout="row">
 
             <div fxFlex="50%">
-                <input type="hidden" name="empId" id="empId" formControlName="empId">
+                <!--<input type="hidden" name="empId" id="empId" formControlName="empId">-->
 
                 <md-input-container>
                     <input name="firstName" id="firstName" mdInput placeholder="First Name" formControlName="firstName">
@@ -69,7 +69,7 @@
                 </md-input-container>
 
                 <button md-button type="submit" [disabled]="!form.valid" color="primary">Save</button>
-                <button md-button>Cancel</button>
+                <button md-button type="button" (click)="cancel()">Cancel</button>
             </div>
 
         </form>

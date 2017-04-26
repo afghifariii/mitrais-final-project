@@ -13,8 +13,8 @@ import { Location } from "../../location/location.model";
 export class EmployeeFilterComponent implements OnInit {
   private locations: Location[];
   genderArr = ["Male", "Female"];
-  genderDisabled = false; //false => disabled; true => enabled
-  locationDisabled = false; // false => disabled; true => enabled
+  genderDisabled = false; 
+  locationDisabled = false; 
   gender = "";
   tempGender = "";
   location = "";

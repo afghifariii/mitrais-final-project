@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { MdButtonModule, MdIconModule, MdInputModule, MdChipsModule, MdTabsModule, MdProgressSpinnerModule, MdSelectModule } from "@angular/material";
+import { MdButtonModule, MdCheckboxModule, MdIconModule, MdInputModule, MdChipsModule, MdTabsModule, MdProgressSpinnerModule, MdSelectModule, MdDialogModule } from "@angular/material";
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { EmployeeListComponent } from "./employee/employee-list/employee-list.component";
@@ -17,6 +17,8 @@ import { LocationService } from "./location/location.service";
 import { BtnSvgComponent } from './btn-svg/btn-svg.component';
 import { EmployeeItemComponent } from './employee/employee-item/employee-item.component';
 import { EmployeeFilterComponent } from './employee/employee-filter/employee-filter.component';
+import { AppService } from './app.service';
+import { routing } from "./app.routing";
 
 
 @NgModule({
@@ -28,22 +30,28 @@ import { EmployeeFilterComponent } from './employee/employee-filter/employee-fil
     EmployeeItemComponent,
     EmployeeFilterComponent
   ],
+  entryComponents: [
+    EmployeeFilterComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    MdButtonModule, 
+    MdButtonModule,
     MdIconModule,
-    MdSelectModule, 
-    MdInputModule, 
-    MdChipsModule, 
+    MdDialogModule,
+    MdCheckboxModule,
+    MdSelectModule,
+    MdInputModule,
+    MdChipsModule,
     MdTabsModule,
     MdProgressSpinnerModule,
     FlexLayoutModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    routing
   ],
-  providers: [EmployeeService, LocationService],
+  providers: [EmployeeService, LocationService, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

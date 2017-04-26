@@ -7,6 +7,14 @@
   cursor: pointer;
 }
 
+.selected{
+  background-color: grey;
+}
+
+.notSelected{
+  background-color: #ffffff;
+}
+
 .img-card {
   float: left;
   border-radius: 100%;

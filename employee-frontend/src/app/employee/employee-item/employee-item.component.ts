@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Employee } from '../employee.model';
 import { EmployeeService } from '../employee.service';
+import { Location } from "../../location/location.model";
 
 @Component({
   selector: 'employee-item',
@@ -26,7 +27,7 @@ export class EmployeeItemComponent implements OnInit {
         state = true;
       }
     }
-    return state = true;
+    return state;
   }
 
   setImage() {
