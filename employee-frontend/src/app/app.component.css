@@ -81,6 +81,12 @@
   align-items: center;
 }
 
+.floating-button {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
+
 /*
 .user-title {
     font-size: 18px;
@@ -97,11 +103,6 @@
   overflow: auto;
   top: 60px;
   bottom: 0px;
-}
-.floating-button {
-  position: absolute;
-  right: 20px;
-  bottom: 10px;
 }
 .right-div {
   position: absolute;

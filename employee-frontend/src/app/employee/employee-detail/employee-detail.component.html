@@ -1,4 +1,7 @@
-<div class="content-bar-div">
+<div *ngIf="!isShow" class ="select-message">
+    <h2>Please select employee or add new one</h2>
+</div>
+<div *ngIf="isShow" class="content-bar-div">
     <md-card>
 
         <form [formGroup]="form" (ngSubmit)="save(form.value)" fxLayout="row">

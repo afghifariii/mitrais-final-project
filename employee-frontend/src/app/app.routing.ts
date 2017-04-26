@@ -1,7 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { EmployeeDetailComponent } from './employee/employee-detail/employee-detail.component';
-// import { ReportItemComponent } from './report-item.component';
 
 const appRoutes: Routes = [
   

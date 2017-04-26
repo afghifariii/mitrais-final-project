@@ -8,6 +8,12 @@
     /*top: 50px;*/
 }
 
+.select-message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 md-card {
   min-height: calc(100% - 64px);
   margin: 10px;
