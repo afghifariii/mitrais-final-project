@@ -21,6 +21,7 @@ import { AppService } from './app.service';
 import { routing } from "./app.routing";
 import { EmployeeConfirmComponent } from './employee/employee-confirm/employee-confirm.component';
 import { Md2Module } from 'md2';
+import { SafeUrl } from "./safeUrl.pipe";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { Md2Module } from 'md2';
     BtnSvgComponent,
     EmployeeItemComponent,
     EmployeeFilterComponent,
-    EmployeeConfirmComponent
+    EmployeeConfirmComponent,
+    SafeUrl
   ],
   entryComponents: [
     EmployeeFilterComponent,

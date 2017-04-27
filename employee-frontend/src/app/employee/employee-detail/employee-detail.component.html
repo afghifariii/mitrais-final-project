@@ -3,87 +3,91 @@
 </div>
 <div *ngIf="isShow" class="content-bar-div">
 
-        <form [formGroup]="form" (ngSubmit)="save(form.value)" fxLayout="row">
+    <form [formGroup]="form" (ngSubmit)="save(form.value)" fxLayout="row">
 
-            <div fxFlex="45%">
-                <input type="hidden" name="empId" id="empId" formControlName="empId">
+        <div fxFlex="45%">
+            <input type="hidden" name="empId" id="empId" formControlName="empId">
 
-                <md-input-container>
-                    <input name="firstName" id="firstName" mdInput placeholder="First Name" formControlName="firstName">
-                </md-input-container>
+            <md-input-container>
+                <input name="firstName" id="firstName" mdInput placeholder="First Name" formControlName="firstName">
+            </md-input-container>
 
-                <md-input-container>
-                    <input name="lastName" id="lastName" mdInput placeholder="Last Name" formControlName="lastName">
-                </md-input-container>
+            <md-input-container>
+                <input name="lastName" id="lastName" mdInput placeholder="Last Name" formControlName="lastName">
+            </md-input-container>
 
-                <!--<md-input-container>
+            <!--<md-input-container>
                     <input name="gender" id="gender" mdInput placeholder="Gender" formControlName="gender">
                 </md-input-container>-->
-                <md-select name="gender" id="gender" placeholder="Gender" formControlName="gender">
-                    <md-option *ngFor="let g of genderArr" [value]="g">{{ g }}</md-option>
-                </md-select>
+            <md-select name="gender" id="gender" placeholder="Gender" formControlName="gender">
+                <md-option *ngFor="let g of genderArr" [value]="g">{{ g }}</md-option>
+            </md-select>
 
-                <!--<md-input-container>
+            <!--<md-input-container>
                     <input name="dateOfBirth" id="dateOfBirth" mdInput type="date" placeholder="Date of Birth" formControlName="dateOfBirth">
                 </md-input-container>-->
-                <md2-datepicker name="dateOfBirth" id="dateOfBirth" mdInput type="date" placeholder="Date of Birth" formControlName="dateOfBirth"></md2-datepicker>
+            <md2-datepicker name="dateOfBirth" id="dateOfBirth" mdInput type="date" placeholder="Date of Birth" formControlName="dateOfBirth"></md2-datepicker>
 
-                <md-input-container>
-                    <input name="nationality" id="nationality" mdInput placeholder="Nationality" formControlName="nationality">
-                </md-input-container>
+            <md-input-container>
+                <input name="nationality" id="nationality" mdInput placeholder="Nationality" formControlName="nationality">
+            </md-input-container>
 
-                <md-input-container>
-                    <input name="maritalStatus" id="maritalStatus" mdInput placeholder="Marital Status" formControlName="maritalStatus">
-                </md-input-container>
+            <md-input-container>
+                <input name="maritalStatus" id="maritalStatus" mdInput placeholder="Marital Status" formControlName="maritalStatus">
+            </md-input-container>
 
-                <md-input-container>
-                    <input name="phone" id="phone" mdInput type="tel" placeholder="Phone" formControlName="phone">
-                </md-input-container>
+            <md-input-container>
+                <input name="phone" id="phone" mdInput type="tel" placeholder="Phone" formControlName="phone">
+            </md-input-container>
 
-                <md-select class="location" name="location" id="location" placeholder="location" formControlName="location">
-                    <md-option *ngFor="let l of locations" [value]="l.id" (click)="onChange(l)">{{ l.city }}</md-option>
-                </md-select>
-            </div>
+            <md-select class="location" name="location" id="location" placeholder="location" formControlName="location">
+                <md-option *ngFor="let l of locations" [value]="l.id" (click)="onChange(l)">{{ l.city }}</md-option>
+            </md-select>
+        </div>
 
-            <div fxFlex="45%">
-                <md-input-container>
-                    <input name="subDivision" id="subDivision" mdInput placeholder="Sub Division" formControlName="subDivision">
-                </md-input-container>
-                <!--<md2-datepicker name="subDivision" id="subDivision" mdInput placeholder="Sub Division" formControlName="subDivision"></md2-datepicker>-->
+        <div fxFlex="45%">
+            <md-input-container>
+                <input name="subDivision" id="subDivision" mdInput placeholder="Sub Division" formControlName="subDivision">
+            </md-input-container>
+            <!--<md2-datepicker name="subDivision" id="subDivision" mdInput placeholder="Sub Division" formControlName="subDivision"></md2-datepicker>-->
 
 
-                <md-input-container>
-                    <input name="status" id="status" mdInput placeholder="Status" formControlName="status">
-                </md-input-container>
+            <md-input-container>
+                <input name="status" id="status" mdInput placeholder="Status" formControlName="status">
+            </md-input-container>
 
-                <!--<md-input-container>
+            <!--<md-input-container>
                     <input name="suspendDate" id="suspendDate" mdInput type="date" placeholder="Suspend Date" formControlName="suspendDate">
                 </md-input-container>-->
-                <md2-datepicker name="suspendDate" id="suspendDate" mdInput type="date" placeholder="Suspend Date" formControlName="suspendDate"></md2-datepicker>
+            <md2-datepicker name="suspendDate" id="suspendDate" mdInput type="date" placeholder="Suspend Date" formControlName="suspendDate"></md2-datepicker>
 
 
-                <!--<md-input-container>
+            <!--<md-input-container>
                     <input name="hiredDate" id="hiredDate" mdInput type="date" placeholder="Hired Date" formControlName="hiredDate">
                 </md-input-container>-->
-                <md2-datepicker name="hiredDate" id="hiredDate" mdInput type="date" placeholder="Hired Date" formControlName="hiredDate"></md2-datepicker>
+            <md2-datepicker name="hiredDate" id="hiredDate" mdInput type="date" placeholder="Hired Date" formControlName="hiredDate"></md2-datepicker>
 
 
-                <md-input-container>
-                    <input name="grade" id="grade" mdInput placeholder="Grade" formControlName="grade">
-                </md-input-container>
+            <md-input-container>
+                <input name="grade" id="grade" mdInput placeholder="Grade" formControlName="grade">
+            </md-input-container>
 
-                <md-input-container>
-                    <input name="division" id="division" mdInput placeholder="Division" formControlName="division">
-                </md-input-container>
+            <md-input-container>
+                <input name="division" id="division" mdInput placeholder="Division" formControlName="division">
+            </md-input-container>
 
-                <md-input-container>
-                    <input name="email" id="email" mdInput type="email" placeholder="E-mail" formControlName="email">
-                </md-input-container>
+            <md-input-container>
+                <input name="email" id="email" mdInput type="email" placeholder="E-mail" formControlName="email">
+            </md-input-container>
 
-            </div>
-        </form>
+        </div>
+        <div fxFlex="10%">
+            <img class="img-card" [src]="empPhoto | safeUrl" (click)="fileInput.click()" />
+            <input class="file-chooser" #fileInput type="file" hidden="hidden" accept="image/*" (change)="chooseImage($event)" />
+        </div>
         <div class="footer">
             <button md-raised-button class="save-btn" type="submit" [disabled]="!form.valid" color="primary">Save</button>
-            <button md-raised-button class ="cancel-btn" type="button" (click)="cancel()">Cancel</button>
+            <button md-raised-button class="cancel-btn" type="button" (click)="cancel()">Cancel</button>
         </div>
+    </form>
 </div>

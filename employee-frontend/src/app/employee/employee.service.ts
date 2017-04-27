@@ -48,13 +48,21 @@ export class EmployeeService {
       });
   }
 
-  add(employee: Employee): Observable<Employee> {
-    let url = "/api/employees/";
+  postOrPut(employee: Employee, empId): Observable<Employee> {
+
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    return this.http.post(url, JSON.stringify(employee), { headers: headers })
-      .map(response => response.json());
+    if (empId != 'new' || empId != null) {
+      let url = "/api/employees/" + employee.empId;
+      return this.http.put(url, JSON.stringify(employee), { headers: headers })
+        .map(response => response.json());
+    } else {
+      let url = "/api/employees/";
+      return this.http.post(url, JSON.stringify(employee), { headers: headers })
+        .map(response => response.json());
+    }
+
   }
 
   put(employee: Employee): Observable<Employee> {

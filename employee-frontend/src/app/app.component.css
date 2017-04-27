@@ -34,8 +34,6 @@
     border-width: 0px 1px 0px 0px;
 }
 
-
-
 .right-div {
     position: absolute;
     width: auto;
@@ -87,6 +85,14 @@
   bottom: 10px;
 }
 
+.content {
+    height: 100%;
+    overflow: hidden;
+}
+
+.tab {
+    overflow: hidden;
+}
 /*
 .user-title {
     font-size: 18px;

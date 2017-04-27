@@ -17,17 +17,19 @@
 <div class="main-div">
   <div class="left-div">
     <employee-list></employee-list>
-    <a routerLink="/employees/add" (click)="add()"><button md-mini-fab class="floating-button" ><md-icon svgIcon="add"></md-icon></button></a>
+    <a routerLink="/employees/new" (click)="add()"><button md-mini-fab class="floating-button" ><md-icon svgIcon="add"></md-icon></button></a>
   </div>
 
   <div class="right-div">
     <div class="top-bar-div">
       <md-tab-group>
-        <md-tab>
+        <md-tab class="tab">
           <ng-template md-tab-label>
             <md-icon svgIcon="person" class="nav-bar-icon"></md-icon>
           </ng-template>
-          <router-outlet></router-outlet>
+          <div class="content">
+            <router-outlet></router-outlet>
+          </div>
         </md-tab>
         <md-tab>
           <ng-template md-tab-label>

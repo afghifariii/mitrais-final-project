@@ -1,5 +1,5 @@
 <div class="emp-card" [ngClass]="{'selected':isSelected(),'notSelected':!isSelected()}">
-  <img class="img-card" [src]="setImage()">
+  <img class="img-card" [src]="setImage() | safeUrl">
   <div class="card-left">
     <a class="emp-name">{{employee.firstName}} {{employee.lastName}}</a><br>
     <a class="emp-info">{{employee.grade}}, {{employee.division}}<br>

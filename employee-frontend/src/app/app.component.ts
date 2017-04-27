@@ -20,6 +20,6 @@ export class AppComponent {
   }
 
   add() {
-    this.appService.notifyOther({ option: 'refreshSelected', value: 'add' });
+    this.appService.notifyOther({ option: 'refreshSelected', value: 'new' });
   }
 }

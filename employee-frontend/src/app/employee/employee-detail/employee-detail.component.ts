@@ -24,8 +24,9 @@ export class EmployeeDetailComponent implements OnInit {
   private isShow = false;
   private isEdited = false
   private empId;
-  private empPhoto="";
+  private empPhoto = "";
   genderArr = ["Male", "Female"];
+  image;
 
   constructor(
     private employeeService: EmployeeService,
@@ -46,15 +47,30 @@ export class EmployeeDetailComponent implements OnInit {
       .subscribe(params => {
         this.empId = params['id'];
         this.isShow = false;
-        if (this.empId == "add") {
+        if (this.empId == "new") {
           this.isEdited = false;
           this.isShow = true;
+          this.empPhoto = "src/resources/images/no-image.png"
           this.form.reset();
         } else if (this.empId != null && this.empId != "") {
           this.getOne(this.empId);
         }
 
       });
+
+  }
+
+  chooseImage(event) {
+    this.image = event.srcElement.files;
+    console.log(this.image[0]);
+
+    var reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.empPhoto = event.target.result;
+      console.log(this.empPhoto);
+    }
+    
+    reader.readAsDataURL(event.target.files[0]);
 
   }
 
@@ -99,7 +115,7 @@ export class EmployeeDetailComponent implements OnInit {
       nationality: this.formBuilder.control(''),
       maritalStatus: this.formBuilder.control(''),
       phone: this.formBuilder.control(''),
-      location: this.formBuilder.control(''),
+      location: this.formBuilder.control("1"),
       subDivision: this.formBuilder.control(''),
       status: this.formBuilder.control(''),
       suspendDate: this.formBuilder.control(''),
@@ -111,26 +127,17 @@ export class EmployeeDetailComponent implements OnInit {
   }
 
   save(employee: Employee) {
-    
-    const location : Location = {
+    const location: Location = {
       id: this.employee.location.id,
       city: ''
     };
     employee.location = location;
-    console.log('sv',employee);
-    if (!employee.empId) {
-      this.employeeService.add(employee)
-        .subscribe(response => {
-          this.employee = response;
-          this.refresh();
-        });
-    } else {
-      this.employeeService.put(employee)
-        .subscribe(response => {
-          this.employee = response;
-          this.refresh();
-        });
-    }
+
+    this.employeeService.postOrPut(employee, this.empId)
+    .subscribe(response => {
+      console.log(response);
+      this.refresh();
+    })
   }
 
   getOne(empId) {
@@ -158,8 +165,10 @@ export class EmployeeDetailComponent implements OnInit {
     this.router.navigate(['/employees/']);
   }
 
-  onChange(location: Location){
-    this.employee.location = location;
+  onChange(location: Location) {
+    if(this.employee.location != null){
+      this.employee.location = location;
+    }
     console.log(this.employee.location)
   }
 
