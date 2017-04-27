@@ -20,7 +20,7 @@ create table t_employee (
     grade varchar(45) not null,
     sub_division varchar(45) not null,
     status varchar(20) not null,
-    photo varchar(255),
+    photo text,
     loc_id varchar(255) not null,
     primary key (emp_id),
     foreign key (loc_id) references t_location(id)
