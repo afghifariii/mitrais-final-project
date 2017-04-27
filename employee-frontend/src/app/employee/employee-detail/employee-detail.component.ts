@@ -124,6 +124,7 @@ export class EmployeeDetailComponent implements OnInit {
       division: this.formBuilder.control(''),
       email: this.formBuilder.control('')
     });
+    this.empPhoto = "src/resources/images/no-image.png";
   }
 
   save(employee: Employee) {
@@ -132,6 +133,10 @@ export class EmployeeDetailComponent implements OnInit {
       city: ''
     };
     employee.location = location;
+
+    if(this.empPhoto != "src/resources/images/no-image.png" || this.empPhoto != null){
+      employee.photo = this.empPhoto;
+    }
 
     this.employeeService.postOrPut(employee, this.empId)
     .subscribe(response => {
@@ -149,6 +154,11 @@ export class EmployeeDetailComponent implements OnInit {
         } else {
           this.isShow = true;
           this.isEdited = true;
+          if (this.employee.photo == null){
+            this.empPhoto = "src/resources/images/no-image.png";
+          }else{
+            this.empPhoto = response.photo;
+          }
           this.setValues();
         }
       })

@@ -83,7 +83,7 @@
         </div>
         <div fxFlex="10%">
             <img class="img-card" [src]="empPhoto | safeUrl" (click)="fileInput.click()" />
-            <input class="file-chooser" #fileInput type="file" hidden="hidden" accept="image/*" (change)="chooseImage($event)" />
+            <input name="photo" id="photo" class="file-chooser" #fileInput type="file" hidden="hidden" accept="image/*" (change)="chooseImage($event)" />
         </div>
         <div class="footer">
             <button md-raised-button class="save-btn" type="submit" [disabled]="!form.valid" color="primary">Save</button>

@@ -34,7 +34,7 @@ export class EmployeeItemComponent implements OnInit {
     if (this.employee.photo == null) {
       return "src/resources/images/no-image.png";
     } else {
-      return "data:image/JPEG;base64," + this.employee.photo;
+      return this.employee.photo;
     }
   }
 
