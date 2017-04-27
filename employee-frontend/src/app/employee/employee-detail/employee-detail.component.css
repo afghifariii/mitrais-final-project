@@ -28,7 +28,7 @@
     /*position: absolute;*/
     top: 5px;
     left: 20px;
-    width: 300px;
+    width: 400px;
     float: left;
     margin-left: 20px;
     /*padding: 0px 0px  51px 0px;*/
@@ -37,8 +37,8 @@
 .right-form {
     /*position: absolute;*/
     top: 5px;
-    left: 340px;
-    width: 300px;
+    left: 400px;
+    width: 400px;
     float: left;
     margin-left: 20px;
 }
@@ -85,7 +85,7 @@ md-card {
 }
 
 md-input-container, md2-datepicker {
-  width: 95%;
+  width: 100%;
   margin-bottom: 13px;
 }
 
@@ -100,7 +100,7 @@ md-input-container, md2-datepicker {
 }
 
 md-select {
-  width: 95%;
+  width: 100%;
   margin-bottom: 15px;
 }
 

@@ -65,22 +65,6 @@ export class EmployeeService {
 
   }
 
-  put(employee: Employee): Observable<Employee> {
-    let url = "/api/employees/" + employee.empId;
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
-    // const lc: Location = {
-    //   id: employee.location.id,
-    //   city: ''
-    // };
-
-    // employee.location = lc;
-
-    return this.http.put(url, JSON.stringify(employee), { headers: headers })
-      .map(response => response.json());
-  }
-
   delete(empId) {
     let url = "/api/employees/" + empId;
 

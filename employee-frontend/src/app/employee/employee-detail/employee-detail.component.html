@@ -32,9 +32,12 @@
                 <input name="nationality" id="nationality" mdInput placeholder="Nationality" formControlName="nationality">
             </md-input-container>
 
-            <md-input-container>
+            <!--<md-input-container>
                 <input name="maritalStatus" id="maritalStatus" mdInput placeholder="Marital Status" formControlName="maritalStatus">
-            </md-input-container>
+            </md-input-container>-->
+            <md-select name="maritalStatus" id="maritalStatus" placeholder="Marital Status" formControlName="maritalStatus">
+                <md-option *ngFor="let m of maritalArr" [value]="m">{{ m }}</md-option>
+            </md-select>
 
             <md-input-container>
                 <input name="phone" id="phone" mdInput type="tel" placeholder="Phone" formControlName="phone">
@@ -68,13 +71,19 @@
             <md2-datepicker name="hiredDate" id="hiredDate" mdInput type="date" placeholder="Hired Date" formControlName="hiredDate"></md2-datepicker>
 
 
-            <md-input-container>
+            <!--<md-input-container>
                 <input name="grade" id="grade" mdInput placeholder="Grade" formControlName="grade">
-            </md-input-container>
+            </md-input-container>-->
+            <md-select name="grade" id="grade" placeholder="Grade" formControlName="grade">
+                <md-option *ngFor="let r of gradeArr" [value]="r">{{ r }}</md-option>
+            </md-select>
 
-            <md-input-container>
+            <!--<md-input-container>
                 <input name="division" id="division" mdInput placeholder="Division" formControlName="division">
-            </md-input-container>
+            </md-input-container>-->
+            <md-select name="division" id="division" placeholder="Division" formControlName="division">
+                <md-option *ngFor="let d of divisionArr" [value]="d">{{ d }}</md-option>
+            </md-select>
 
             <md-input-container>
                 <input name="email" id="email" mdInput type="email" placeholder="E-mail" formControlName="email">

@@ -26,7 +26,11 @@ export class EmployeeDetailComponent implements OnInit {
   private empId;
   private empPhoto = "";
   genderArr = ["Male", "Female"];
+  gradeArr = ["SE - JP", "SE - PG", "SE - AP", "SE - AN"];
+  divisionArr = ["SWD - TechOne", "CDC - TechOne", "MMS - TechOne", "CDC - Red", "CDC - Services", "MMS - Services", "SWD - Services", "SWD - Blue"];
+  maritalArr = ["Single", "Married"];
   image;
+   
 
   constructor(
     private employeeService: EmployeeService,
@@ -134,7 +138,7 @@ export class EmployeeDetailComponent implements OnInit {
     };
     employee.location = location;
 
-    if(this.empPhoto != "src/resources/images/no-image.png" || this.empPhoto != null){
+    if(this.empPhoto != "src/resources/images/no-image.png" && this.empPhoto != null){
       employee.photo = this.empPhoto;
     }
 
