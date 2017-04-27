@@ -54,9 +54,12 @@ export class BtnSvgComponent {
     iconRegistry.addSvgIcon(
       'chevron_right',
       sanitizer.bypassSecurityTrustResourceUrl('src/resources/svg/chevron_right.svg'));
+      iconRegistry.addSvgIcon(
+        'sort-asc',
+      sanitizer.bypassSecurityTrustResourceUrl('src/resources/svg/sort-asc.svg'));
     iconRegistry.addSvgIcon(
-        'sort',
-      sanitizer.bypassSecurityTrustResourceUrl('src/resources/svg/sort.svg'));
+        'sort-desc',
+      sanitizer.bypassSecurityTrustResourceUrl('src/resources/svg/sort-desc.svg'));
     iconRegistry.addSvgIcon(
         'delete',
       sanitizer.bypassSecurityTrustResourceUrl('src/resources/svg/delete.svg'));
