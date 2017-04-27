@@ -90,43 +90,43 @@ export class EmployeeDetailComponent implements OnInit {
 
   setValues() {
     this.form = this.formBuilder.group({
-      empId: this.formBuilder.control(this.employee.empId),
-      firstName: this.formBuilder.control(this.employee.firstName),
-      lastName: this.formBuilder.control(this.employee.lastName),
-      gender: this.formBuilder.control(this.employee.gender),
-      dateOfBirth: this.formBuilder.control(this.employee.dateOfBirth),
-      nationality: this.formBuilder.control(this.employee.nationality),
-      maritalStatus: this.formBuilder.control(this.employee.maritalStatus),
-      phone: this.formBuilder.control(this.employee.phone),
-      location: this.formBuilder.control(this.employee.location.id),
-      subDivision: this.formBuilder.control(this.employee.subDivision),
-      status: this.formBuilder.control(this.employee.status),
-      suspendDate: this.formBuilder.control(this.employee.suspendDate),
-      hiredDate: this.formBuilder.control(this.employee.hiredDate),
-      grade: this.formBuilder.control(this.employee.grade),
-      division: this.formBuilder.control(this.employee.division),
-      email: this.formBuilder.control(this.employee.email)
+      empId         : this.formBuilder.control(this.employee.empId),
+      firstName     : this.formBuilder.control(this.employee.firstName),
+      lastName      : this.formBuilder.control(this.employee.lastName),
+      gender        : this.formBuilder.control(this.employee.gender),
+      dateOfBirth   : this.formBuilder.control(this.employee.dateOfBirth),
+      nationality   : this.formBuilder.control(this.employee.nationality),
+      maritalStatus : this.formBuilder.control(this.employee.maritalStatus),
+      phone         : this.formBuilder.control(this.employee.phone),
+      location      : this.formBuilder.control(this.employee.location.id),
+      subDivision   : this.formBuilder.control(this.employee.subDivision),
+      status        : this.formBuilder.control(this.employee.status),
+      suspendDate   : this.formBuilder.control(this.employee.suspendDate),
+      hiredDate     : this.formBuilder.control(this.employee.hiredDate),
+      grade         : this.formBuilder.control(this.employee.grade),
+      division      : this.formBuilder.control(this.employee.division),
+      email         : this.formBuilder.control(this.employee.email)
     });
   }
 
   initValues() {
     this.form = this.formBuilder.group({
-      empId: this.formBuilder.control(''),
-      firstName: this.formBuilder.control(''),
-      lastName: this.formBuilder.control(''),
-      gender: this.formBuilder.control(''),
-      dateOfBirth: this.formBuilder.control(''),
-      nationality: this.formBuilder.control(''),
-      maritalStatus: this.formBuilder.control(''),
-      phone: this.formBuilder.control(''),
-      location: this.formBuilder.control("1"),
-      subDivision: this.formBuilder.control(''),
-      status: this.formBuilder.control(''),
-      suspendDate: this.formBuilder.control(''),
-      hiredDate: this.formBuilder.control(''),
-      grade: this.formBuilder.control(''),
-      division: this.formBuilder.control(''),
-      email: this.formBuilder.control('')
+      empId         : this.formBuilder.control(''),
+      firstName     : this.formBuilder.control('', Validators.compose([Validators.required])),
+      lastName      : this.formBuilder.control('', Validators.compose([Validators.required])),
+      gender        : this.formBuilder.control('', Validators.compose([Validators.required])),
+      dateOfBirth   : this.formBuilder.control('', Validators.compose([Validators.required])),
+      nationality   : this.formBuilder.control('', Validators.compose([Validators.required])),
+      maritalStatus : this.formBuilder.control('', Validators.compose([Validators.required])),
+      phone         : this.formBuilder.control('', Validators.compose([Validators.required])),
+      location      : this.formBuilder.control('', Validators.compose([Validators.required])),
+      subDivision   : this.formBuilder.control('', Validators.compose([Validators.required])),
+      status        : this.formBuilder.control('', Validators.compose([Validators.required])),
+      suspendDate   : this.formBuilder.control(''),
+      hiredDate     : this.formBuilder.control('', Validators.compose([Validators.required])),
+      grade         : this.formBuilder.control('', Validators.compose([Validators.required])),
+      division      : this.formBuilder.control('', Validators.compose([Validators.required])),
+      email         : this.formBuilder.control('', Validators.compose([Validators.required]))
     });
     this.empPhoto = "src/resources/images/no-image.png";
   }
@@ -144,7 +144,7 @@ export class EmployeeDetailComponent implements OnInit {
 
     this.employeeService.postOrPut(employee, this.empId)
     .subscribe(response => {
-      console.log(response);
+      //console.log(response);
       this.refresh();
     })
   }
@@ -183,7 +183,7 @@ export class EmployeeDetailComponent implements OnInit {
     if(this.employee.location != null){
       this.employee.location = location;
     }
-    console.log(this.employee.location)
+    //console.log(this.employee.location)
   }
 
 }
