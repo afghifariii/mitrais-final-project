@@ -91,34 +91,34 @@ export class EmployeeDetailComponent implements OnInit {
   setValues() {
     this.form = this.formBuilder.group({
       empId         : this.formBuilder.control(this.employee.empId),
-      firstName     : this.formBuilder.control(this.employee.firstName),
-      lastName      : this.formBuilder.control(this.employee.lastName),
-      gender        : this.formBuilder.control(this.employee.gender),
-      dateOfBirth   : this.formBuilder.control(this.employee.dateOfBirth),
-      nationality   : this.formBuilder.control(this.employee.nationality),
-      maritalStatus : this.formBuilder.control(this.employee.maritalStatus),
-      phone         : this.formBuilder.control(this.employee.phone),
-      location      : this.formBuilder.control(this.employee.location.id),
-      subDivision   : this.formBuilder.control(this.employee.subDivision),
-      status        : this.formBuilder.control(this.employee.status),
+      firstName     : this.formBuilder.control(this.employee.firstName, Validators.compose([Validators.required, Validators.pattern('[\\w\\-\\s\\/]+')])),
+      lastName      : this.formBuilder.control(this.employee.lastName, Validators.compose([Validators.required, Validators.pattern('[\\w\\-\\s\\/]+')])),
+      gender        : this.formBuilder.control(this.employee.gender, Validators.compose([Validators.required])),
+      dateOfBirth   : this.formBuilder.control(this.employee.dateOfBirth, Validators.compose([Validators.required])),
+      nationality   : this.formBuilder.control(this.employee.nationality, Validators.compose([Validators.required])),
+      maritalStatus : this.formBuilder.control(this.employee.maritalStatus, Validators.compose([Validators.required])),
+      phone         : this.formBuilder.control(this.employee.phone, Validators.compose([Validators.required, Validators.pattern(/^[0-9\(\)\-\+]{5,25}$/)])),
+      location      : this.formBuilder.control(this.employee.location.id, Validators.compose([Validators.required])),
+      subDivision   : this.formBuilder.control(this.employee.subDivision, Validators.compose([Validators.required])),
+      status        : this.formBuilder.control(this.employee.status, Validators.compose([Validators.required])),
       suspendDate   : this.formBuilder.control(this.employee.suspendDate),
-      hiredDate     : this.formBuilder.control(this.employee.hiredDate),
-      grade         : this.formBuilder.control(this.employee.grade),
-      division      : this.formBuilder.control(this.employee.division),
-      email         : this.formBuilder.control(this.employee.email)
+      hiredDate     : this.formBuilder.control(this.employee.hiredDate, Validators.compose([Validators.required])),
+      grade         : this.formBuilder.control(this.employee.grade, Validators.compose([Validators.required])),
+      division      : this.formBuilder.control(this.employee.division, Validators.compose([Validators.required])),
+      email         : this.formBuilder.control(this.employee.email, Validators.compose([Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]))
     });
   }
 
   initValues() {
     this.form = this.formBuilder.group({
       empId         : this.formBuilder.control(''),
-      firstName     : this.formBuilder.control('', Validators.compose([Validators.required])),
-      lastName      : this.formBuilder.control('', Validators.compose([Validators.required])),
+      firstName     : this.formBuilder.control('', Validators.compose([Validators.required, Validators.pattern('[\\w\\-\\s\\/]+')])),
+      lastName      : this.formBuilder.control('', Validators.compose([Validators.required, Validators.pattern('[\\w\\-\\s\\/]+')])),
       gender        : this.formBuilder.control('', Validators.compose([Validators.required])),
       dateOfBirth   : this.formBuilder.control('', Validators.compose([Validators.required])),
       nationality   : this.formBuilder.control('', Validators.compose([Validators.required])),
       maritalStatus : this.formBuilder.control('', Validators.compose([Validators.required])),
-      phone         : this.formBuilder.control('', Validators.compose([Validators.required])),
+      phone         : this.formBuilder.control('', Validators.compose([Validators.required, Validators.pattern(/^[0-9\(\)\-\+]{5,25}$/)])),
       location      : this.formBuilder.control('', Validators.compose([Validators.required])),
       subDivision   : this.formBuilder.control('', Validators.compose([Validators.required])),
       status        : this.formBuilder.control('', Validators.compose([Validators.required])),
@@ -126,7 +126,7 @@ export class EmployeeDetailComponent implements OnInit {
       hiredDate     : this.formBuilder.control('', Validators.compose([Validators.required])),
       grade         : this.formBuilder.control('', Validators.compose([Validators.required])),
       division      : this.formBuilder.control('', Validators.compose([Validators.required])),
-      email         : this.formBuilder.control('', Validators.compose([Validators.required]))
+      email         : this.formBuilder.control('', Validators.compose([Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]))
     });
     this.empPhoto = "src/resources/images/no-image.png";
   }
