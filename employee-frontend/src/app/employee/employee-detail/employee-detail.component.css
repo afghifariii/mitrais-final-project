@@ -9,6 +9,45 @@
     bottom: 0;
     overflow: hidden;
 }
+.form-body {
+    box-sizing: border-box;
+    height: auto;
+    width: auto;
+    /*position: absolute;*/
+    top: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 5px 0px 0px 0px;
+    overflow-x: auto;
+    overflow-y: auto;
+    margin-bottom: 60px;
+}
+
+.left-form {
+    /*position: absolute;*/
+    top: 5px;
+    left: 20px;
+    width: 300px;
+    float: left;
+    margin-left: 20px;
+    /*padding: 0px 0px  51px 0px;*/
+}
+
+.right-form {
+    /*position: absolute;*/
+    top: 5px;
+    left: 340px;
+    width: 300px;
+    float: left;
+    margin-left: 20px;
+}
+
+.form-img {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+}
 
 .select-message{
   display: flex;
@@ -16,23 +55,26 @@
   align-items: center;
 }
 
-
+form {
+  height: 100%;
+}
 
 .footer{
-  margin-top: 20px;
-  position: static;
+  position: fixed;
+  height: 46px;
+  left: 375px;
+  bottom: 0px;
+  /*right: 0px;*/
+  width: calc(100% - 375px);
+  min-width: 340px;
   background-color: #5c6bc0;
-  width: 99%;
-  height: 43px;
-  bottom: 0;
-  margin-bottom: 0px;
 }
 
 .img-card{
   float: right;
   border-radius: 100%;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   cursor: pointer;
 }
 

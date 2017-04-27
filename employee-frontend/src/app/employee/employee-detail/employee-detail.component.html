@@ -1,11 +1,11 @@
 <div *ngIf="!isShow" class="select-message">
     <h2>Please select employee or add new one</h2>
 </div>
-<div *ngIf="isShow" class="content-bar-div">
+<div *ngIf="isShow" class="form-body">
 
     <form [formGroup]="form" (ngSubmit)="save(form.value)" fxLayout="row">
 
-        <div fxFlex="45%">
+        <div class=left-form>
             <input type="hidden" name="empId" id="empId" formControlName="empId">
 
             <md-input-container>
@@ -45,7 +45,7 @@
             </md-select>
         </div>
 
-        <div fxFlex="45%">
+        <div class=right-form>
             <md-input-container>
                 <input name="subDivision" id="subDivision" mdInput placeholder="Sub Division" formControlName="subDivision">
             </md-input-container>
@@ -81,7 +81,7 @@
             </md-input-container>
 
         </div>
-        <div fxFlex="10%">
+        <div class="form-img">
             <img class="img-card" [src]="empPhoto | safeUrl" (click)="fileInput.click()" />
             <input name="photo" id="photo" class="file-chooser" #fileInput type="file" hidden="hidden" accept="image/*" (change)="chooseImage($event)" />
         </div>

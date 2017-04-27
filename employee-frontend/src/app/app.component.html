@@ -1,10 +1,10 @@
 <div class="top-div">
   <button md-icon-button class="menu-button"><md-icon svgIcon="menu"></md-icon></button>
-  <img class="user-img" src="src/resources/images/no-image.png" width="40" height="40">
+  <img class="user-img" src="src/resources/images/donald-trump.jpg" width="40" height="40">
   <span>
     <div class="user-title">
       <a>Donald Trump</a> <br>
-      <a>SE-AN</a>
+      <a>SE - AN</a>
     </div>
   </span>
   <span class="fill-remaining-space"></span>
@@ -22,14 +22,11 @@
 
   <div class="right-div">
     <div class="top-bar-div">
-      <md-tab-group>
+      <md-tab-group [dynamicHeight] = "false">
         <md-tab class="tab">
           <ng-template md-tab-label>
             <md-icon svgIcon="person" class="nav-bar-icon"></md-icon>
           </ng-template>
-          <div class="content">
-            <router-outlet></router-outlet>
-          </div>
         </md-tab>
         <md-tab>
           <ng-template md-tab-label>
@@ -78,6 +75,7 @@
           </div>
         </md-tab>
       </md-tab-group>
+       <router-outlet></router-outlet>
     </div>
   </div>
 </div>
