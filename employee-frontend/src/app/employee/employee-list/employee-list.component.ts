@@ -44,7 +44,7 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.get()
       .subscribe(employees => {
         this.employees = employees;
-        console.log(employees);
+        //console.log(employees);
       });
 
     this.subscription = this.appService.notifyObservable$.subscribe((res) => {
@@ -67,7 +67,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   getBy(searchParam, gender, location, sortDir) {
-    console.log(searchParam, gender, location, sortDir)
+    //console.log(searchParam, gender, location, sortDir)
     this.employeeService.getBy(searchParam, gender, location, sortDir)
       .subscribe(response => {
         this.employees = response;
