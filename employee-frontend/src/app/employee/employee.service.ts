@@ -18,12 +18,17 @@ export class EmployeeService {
 
   get(): Observable<Employee[]> {
     let url = "/api/employees/all";
-    return this.http.get(url)
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(url, { headers: headers })
       .map(response => response.json());
   }
 
   getBy(searchParam, gender, location, sort): Observable<Employee[]> {
     let url = "/api/employees/getby";
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
 
     let searchParams = new URLSearchParams();
     searchParams.append('firstName', searchParam);
@@ -32,13 +37,15 @@ export class EmployeeService {
     searchParams.append('location', location);
     searchParams.append('sort', sort);
 
-    return this.http.get(url, { search: searchParams })
+    return this.http.get(url, { search: searchParams, headers: headers })
       .map(response => response.json());
   }
 
   getOne(empId): Observable<Employee> {
     let url = "/api/employees/" + empId;
-    return this.http.get(url)
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(url, { headers: headers })
       .map(response => {
         if (response != null) {
           return response.json();
