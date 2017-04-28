@@ -35,6 +35,7 @@
 }
 
 .right-div {
+    min-width: 480px;
     position: absolute;
     width: auto;
     height: auto;
@@ -42,8 +43,6 @@
     left: 375px;
     right: 0px; /*delete this if no scroll bar*/
     bottom: 0px;
-    /*min-width: textbox*2+40*/
-    /*background-color: white;*/
 }
 
 .menu-button {
@@ -88,11 +87,11 @@
 
 .content {
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .tab {
-    overflow: hidden;
+    overflow: auto;
 }
 /*
 .user-title {

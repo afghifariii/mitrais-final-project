@@ -7,20 +7,20 @@
     padding: 5px;
     /*top: 50px;*/
     bottom: 0;
-    overflow: hidden;
+    overflow: auto;
 }
-.form-body {
+.form-body, .select-message {
     box-sizing: border-box;
     height: auto;
     width: auto;
-    /*position: absolute;*/
+    position: absolute;
     top: 50px;
     bottom: 0px;
     left: 0px;
     right: 0px;
     padding: 5px 0px 0px 0px;
     overflow-x: auto;
-    overflow-y: auto;
+    overflow-y: scroll;
     margin-bottom: 60px;
 }
 
@@ -45,7 +45,7 @@
 
 .form-img {
     position: absolute;
-    top: 70px;
+    top: 20px;
     right: 20px;
 }
 
