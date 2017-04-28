@@ -65,8 +65,8 @@ export class EmployeeDetailComponent implements OnInit {
   }
 
   chooseImage(event) {
-    this.image = event.srcElement.files;
-    console.log(this.image[0]);
+    this.image = event.target.files;
+    //console.log(this.image[0]);
 
     var reader = new FileReader();
     reader.onload = (event: any) => {
