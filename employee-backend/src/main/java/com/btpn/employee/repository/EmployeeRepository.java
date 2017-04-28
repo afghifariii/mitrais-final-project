@@ -1,4 +1,4 @@
-package com.btpn.empolyee.repository;
+package com.btpn.employee.repository;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
@@ -8,7 +8,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.btpn.empolyee.entity.Employee;
+import com.btpn.employee.entity.Employee;
 
 @RestResource
 public interface EmployeeRepository extends PagingAndSortingRepository<Employee, String> {

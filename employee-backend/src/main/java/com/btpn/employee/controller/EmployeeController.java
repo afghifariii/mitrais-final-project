@@ -1,4 +1,4 @@
-package com.btpn.empolyee.controller;
+package com.btpn.employee.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.btpn.empolyee.entity.Employee;
-import com.btpn.empolyee.repository.EmployeeRepository;
+import com.btpn.employee.entity.Employee;
+import com.btpn.employee.repository.EmployeeRepository;
 
 @RestController
 public class EmployeeController {

@@ -10,9 +10,6 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.btpn.empolyee.entity.Employee;
-import com.btpn.empolyee.entity.Location;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Employee.class)
 public class EmployeeTest {

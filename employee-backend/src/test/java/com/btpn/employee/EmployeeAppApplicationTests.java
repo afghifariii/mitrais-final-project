@@ -1,4 +1,4 @@
-package com.btpn.empolyee;
+package com.btpn.employee;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

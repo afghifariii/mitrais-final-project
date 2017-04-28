@@ -1,4 +1,4 @@
-package com.btpn.empolyee.entity;
+package com.btpn.employee.entity;
 
 import java.util.Date;
 
