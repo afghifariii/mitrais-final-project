@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -29,11 +30,15 @@ public class EmployeeControllerTest {
 	@MockBean
 	private EmployeeRepository employeeRepo;
 	
+	@Autowired
+	private EmployeeController employeeController;
+	
 	@Before
 	public void setup() throws ParseException {
-		this.mock = MockMvcBuilders.standaloneSetup(new EmployeeController()).build();
+		this.mock = MockMvcBuilders.standaloneSetup(this.employeeController).build();
 		
 		this.employeeRepo.deleteAll();
+		
 		Employee emp = new Employee();
 		emp.setEmpId("2");
 		emp.setFirstName("Ali Firdaus");
@@ -50,6 +55,7 @@ public class EmployeeControllerTest {
 		emp.setGrade("SE - JP");
 		emp.setStatus("Contract");
 		emp.setLocation(new Location("1", "Jakarta"));
+		
 		this.employeeRepo.save(emp);
 	}
 	
@@ -57,6 +63,20 @@ public class EmployeeControllerTest {
 	public void allEmployees() throws Exception{
 		this.mock.perform(get("/employees/all/"))
 		.andExpect(status().isOk());
+	}
+	
+	@Test
+	public void findByIdFound() throws Exception {
+		//Found
+		this.mock.perform(get("/employees/2"))
+		.andExpect(status().isOk());
+	}
+	
+	@Test
+	public void findByIdNotFound() throws Exception {
+		this.mock.perform(get("/employees/3"))
+		.andExpect(status().isOk())
+		.andExpect(content().string(""));
 	}
 
 }
