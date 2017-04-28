@@ -1,130 +1,100 @@
 package com.btpn.employee.controller;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.test.web.servlet.MvcResult;
 
 import com.btpn.employee.entity.Employee;
 import com.btpn.employee.entity.Location;
-import com.btpn.employee.repository.EmployeeRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.not;
 
-@RunWith(SpringRunner.class)
-@DataJpaTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
+//@AutoConfigureMockMvc
 public class EmployeeControllerTest {
 
-	@Autowired
-	private EmployeeRepository employeeRepo;
-	
-	@Autowired
-	private TestEntityManager entityManager;
-
-	@Autowired
-	private EmployeeController employeeController;
-	
-//	@Test
-//	public void findByFirstNameContainingOrLastNameContainingAllIgnoreCase(){
-//		entityManager.persist(entity)
-//	}
-
+//	@Autowired
+//	private MockMvc mockMvc;
+//
+//	private Employee emp = new Employee();
+//	
+//	ObjectMapper mapper = new ObjectMapper();
+//
 //	@Before
-//	public void setup() throws ParseException {
-//		this.mock = MockMvcBuilders.standaloneSetup(this.employeeController).build();
+//	public void createEmployee() throws Exception {
+//		emp.setEmpId("1234567890");
+//		emp.setFirstName("Ali Firdaus");
+//		emp.setLastName("Ghifari");
+//		emp.setGender("Male");
+//		emp.setDateOfBirth(new SimpleDateFormat("yyyy-MM-dd").parse("1993-06-27"));
+//		emp.setmaritalStatus("Single");
+//		emp.setNationality("Indonesian");
+//		emp.setPhone("0809089999");
+//		emp.setEmail("jancokers@gmail.com");
+//		emp.setHiredDate(new SimpleDateFormat("yyyy-MM-dd").parse("2017-03-13"));
+//		emp.setDivision("SWD Red");
+//		emp.setSubDivision("Java Bootcamp");
+//		emp.setGrade("SE - JP");
+//		emp.setStatus("Contract");
+//		emp.setLocation(new Location("1", "Jakarta"));
+//		
+//		String jsonContent = mapper.writeValueAsString(emp);
+//
+//		MvcResult result = this.mockMvc
+//				.perform(post("/employees/").content(jsonContent).contentType("application/json;charset=UTF-8"))
+//				.andExpect(status().isCreated()).andReturn();
+//		
+//		System.out.println(jsonContent);
+//
 //	}
 //
 //	@Test
-//	public void saveEmployee() throws Exception {
-//		String employee = "{"
-//							+ "\"firstName\": \"Donald\","
-//							+ "\"lastName\": \"Duck\","
-//							+ "\"gender\": \"Male\","
-//							+ "\"dateOfBirth\": \"1993-06-27\","
-//							+ "\"nationality\": \"Indonesian\","
-//							+ "\"maritalStatus\": \"Single\","
-//							+ "\"phone\": \"08113151500\","
-//							+ "\"email\": \"donaldduck@gmail.com\","
-//							+ "\"hiredDate\": \"2017-03-13\","
-//							+ "\"suspendDate\": null,"
-//							+ "\"division\": \"CDC AsteRx\","
-//							+ "\"grade\": \"SE-JP\","
-//							+ "\"subDivision\": \"Java Bootcamp\","
-//							+ "\"status\": \"Contract\","
-//							+ "\"photo\": null,"
-//							+ "\"location\": {"
-//							+ "\"id\": \"4\"}"
-//						+ "}";
-//		this.mock.perform(post("/employees/")
-//				.content(employee)
-//				.contentType("application/json"))
-//		.andExpect(status().isCreated());						  
-//
+//	public void findAll() throws Exception {
+//		String jsonContent = mapper.writeValueAsString(emp);
+//		
+//		this.mockMvc.perform(get("/employees/all"))
+//					.andExpect(status().isOk())
+//					//.andExpect(content().string(containsString(jsonContent)))
+//					.andReturn();
 //	}
+//	
 //	
 //	@Test
 //	public void updateEmployee() throws Exception {
-//		String employee = "{"
-//				+ "\"firstName\": \"Donald\","
-//				+ "\"lastName\": \"Duck\","
-//				+ "\"gender\": \"Male\","
-//				+ "\"dateOfBirth\": \"1993-06-27\","
-//				+ "\"nationality\": \"Indonesian\","
-//				+ "\"maritalStatus\": \"Single\","
-//				+ "\"phone\": \"08113151500\","
-//				+ "\"email\": \"donaldduck@gmail.com\","
-//				+ "\"hiredDate\": \"2017-03-13\","
-//				+ "\"suspendDate\": null,"
-//				+ "\"division\": \"CDC AsteRx\","
-//				+ "\"grade\": \"SE-JP\","
-//				+ "\"subDivision\": \"Java Bootcamp\","
-//				+ "\"status\": \"Contract\","
-//				+ "\"photo\": null,"
-//				+ "\"location\": {"
-//				+ "\"id\": \"4\"}"
-//			+ "}";
-//			this.mock.perform(put("/employees/2")
-//				.content(employee)
-//				.contentType("application/json"))
-//			.andExpect(status().isOk());
+//		
+//		emp.setEmail("JunitTest@junit.org");
+//		
+//		String jsonContent = mapper.writeValueAsString(emp);
+//		
+//		
+//		this.mockMvc.perform(put("/employees/{id}", emp.getEmpId()).content(jsonContent)
+//					.contentType("application/json;charset=UTF-8"))
+//			        .andExpect(status().isOk())
+//			        .andExpect(content().string(containsString(jsonContent)))
+//			        .andReturn();
 //	}
 //	
 //	@Test
 //	public void deleteEmployee() throws Exception {
-//		this.mock.perform(delete("/employees/2"))
-//		.andExpect(status().isOk());
+//		String jsonContent = mapper.writeValueAsString(emp);
+//		
+//		this.mockMvc.perform(delete("/employees/{id}", emp.getEmpId()))
+//        .andExpect(status().isOk())
+//        .andExpect(content().string(not(containsString(jsonContent))))
+//        .andReturn();
 //	}
-//
-//	@Test
-//	public void allEmployees() throws Exception {
-//		this.mock.perform(get("/employees/all/"))
-//		.andExpect(status().isOk())
-//		.andExpect(content().string(""));
-//	}
-//
-//	@Test
-//	public void findByIdFound() throws Exception {
-//		// Found
-//		this.mock.perform(get("/employees/2"))
-//		.andExpect(status().isOk());
-//	}
-//
-//	@Test
-//	public void findByIdNotFound() throws Exception {
-//		this.mock.perform(get("/employees/3")).andExpect(status().isOk()).andExpect(content().string(""));
-//	}
-//
+	
 }
