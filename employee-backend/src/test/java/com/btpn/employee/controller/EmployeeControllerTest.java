@@ -117,27 +117,23 @@ public class EmployeeControllerTest {
 	@Test
 	public void deleteEmployee() throws Exception {
 		this.mock.perform(delete("/employees/2"))
-		.andExpect(content().string(""))
 		.andExpect(status().isOk());
 	}
 
 	@Test
 	public void allEmployees() throws Exception {
-		this.mock.perform(get("/employees/all/"))
-		.andExpect(status().isOk());
+		this.mock.perform(get("/employees/all/")).andExpect(status().isOk());
 	}
 
 	@Test
 	public void findByIdFound() throws Exception {
-		this.mock.perform(get("/employees/2"))
-		.andExpect(status().isOk());
+		// Found
+		this.mock.perform(get("/employees/2")).andExpect(status().isOk());
 	}
 
 	@Test
 	public void findByIdNotFound() throws Exception {
-		this.mock.perform(get("/employees/3"))
-		.andExpect(status().isOk())
-		.andExpect(content().string(""));
+		this.mock.perform(get("/employees/3")).andExpect(status().isOk()).andExpect(content().string(""));
 	}
 
 }
