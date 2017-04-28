@@ -22,23 +22,23 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes=EmployeeController.class)
+@SpringBootTest(classes = EmployeeController.class)
 public class EmployeeControllerTest {
-	
+
 	private MockMvc mock;
-	
+
 	@MockBean
 	private EmployeeRepository employeeRepo;
-	
+
 	@Autowired
 	private EmployeeController employeeController;
-	
+
 	@Before
 	public void setup() throws ParseException {
 		this.mock = MockMvcBuilders.standaloneSetup(this.employeeController).build();
-		
+
 		this.employeeRepo.deleteAll();
-		
+
 		Employee emp = new Employee();
 		emp.setEmpId("2");
 		emp.setFirstName("Ali Firdaus");
@@ -55,23 +55,84 @@ public class EmployeeControllerTest {
 		emp.setGrade("SE - JP");
 		emp.setStatus("Contract");
 		emp.setLocation(new Location("1", "Jakarta"));
-		
+
 		this.employeeRepo.save(emp);
+	}
+
+	@Test
+	public void saveEmployee() throws Exception {
+		String employee = "{"
+							+ "\"firstName\": \"Donald\","
+							+ "\"lastName\": \"Duck\","
+							+ "\"gender\": \"Male\","
+							+ "\"dateOfBirth\": \"1993-06-27\","
+							+ "\"nationality\": \"Indonesian\","
+							+ "\"maritalStatus\": \"Single\","
+							+ "\"phone\": \"08113151500\","
+							+ "\"email\": \"donaldduck@gmail.com\","
+							+ "\"hiredDate\": \"2017-03-13\","
+							+ "\"suspendDate\": null,"
+							+ "\"division\": \"CDC AsteRx\","
+							+ "\"grade\": \"SE-JP\","
+							+ "\"subDivision\": \"Java Bootcamp\","
+							+ "\"status\": \"Contract\","
+							+ "\"photo\": null,"
+							+ "\"location\": {"
+							+ "\"id\": \"4\"}"
+						+ "}";
+		this.mock.perform(post("/employees/")
+				.content(employee)
+				.contentType("application/json"))
+		.andExpect(status().isCreated());						  
+
 	}
 	
 	@Test
-	public void allEmployees() throws Exception{
+	public void updateEmployee() throws Exception {
+		String employee = "{"
+				+ "\"firstName\": \"Donald\","
+				+ "\"lastName\": \"Duck\","
+				+ "\"gender\": \"Male\","
+				+ "\"dateOfBirth\": \"1993-06-27\","
+				+ "\"nationality\": \"Indonesian\","
+				+ "\"maritalStatus\": \"Single\","
+				+ "\"phone\": \"08113151500\","
+				+ "\"email\": \"donaldduck@gmail.com\","
+				+ "\"hiredDate\": \"2017-03-13\","
+				+ "\"suspendDate\": null,"
+				+ "\"division\": \"CDC AsteRx\","
+				+ "\"grade\": \"SE-JP\","
+				+ "\"subDivision\": \"Java Bootcamp\","
+				+ "\"status\": \"Contract\","
+				+ "\"photo\": null,"
+				+ "\"location\": {"
+				+ "\"id\": \"4\"}"
+			+ "}";
+			this.mock.perform(put("/employees/2")
+				.content(employee)
+				.contentType("application/json"))
+			.andExpect(status().isOk());
+	}
+	
+	@Test
+	public void deleteEmployee() throws Exception {
+		this.mock.perform(delete("/employees/2"))
+		.andExpect(content().string(""))
+		.andExpect(status().isOk());
+	}
+
+	@Test
+	public void allEmployees() throws Exception {
 		this.mock.perform(get("/employees/all/"))
 		.andExpect(status().isOk());
 	}
-	
+
 	@Test
 	public void findByIdFound() throws Exception {
-		//Found
 		this.mock.perform(get("/employees/2"))
 		.andExpect(status().isOk());
 	}
-	
+
 	@Test
 	public void findByIdNotFound() throws Exception {
 		this.mock.perform(get("/employees/3"))
