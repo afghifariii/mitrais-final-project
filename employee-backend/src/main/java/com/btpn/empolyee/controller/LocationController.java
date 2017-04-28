@@ -13,11 +13,16 @@ import com.btpn.empolyee.repository.LocationRepository;
 public class LocationController {
 
 	@Autowired
-	private LocationRepository locationDao;
+	private LocationRepository locationRepo;
+	
+	public LocationController(LocationRepository locationRepo) {
+		// TODO Auto-generated constructor stub
+		this.locationRepo = locationRepo;
+	}
 	
 	@GetMapping("/locations/all")
 	@ResponseStatus(HttpStatus.OK)
 	public Iterable<Location> allLocations() {
-		return locationDao.findAll();
+		return locationRepo.findAll();
 	}
 }

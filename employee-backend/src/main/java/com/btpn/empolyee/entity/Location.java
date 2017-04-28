@@ -39,6 +39,16 @@ public class Location {
 	public void setCity(String city) {
 		this.city = city;
 	}
+
+	public Location(String id, String city) {
+
+		this.id = id;
+		this.city = city;
+	}
+
+	public Location() {
+
+	}
 	
 	
 }
