@@ -1,4 +1,4 @@
-<h1 md-dialog-title class="header">Employee Filter</h1>
+<h1 md-dialog-title class="header">Filter Employee</h1>
 <div md-dialog-content class="content">
     <md-checkbox (click)="onGenderClick()" [(ngModel)]="genderDisabled"></md-checkbox>
     <md-select placeholder="Gender" name="genderSelect" [disabled]="!genderDisabled" [(ngModel)]="tempGender" (change)="onGenderChange($event)">

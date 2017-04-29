@@ -29,6 +29,7 @@ export class EmployeeListComponent implements OnInit {
   gender = "";
   location = "";
   sortDir = "asc";
+  active: boolean = false;
   isShow: boolean = false;
   subscription: Subscription;
 
@@ -147,6 +148,11 @@ export class EmployeeListComponent implements OnInit {
         if (result.action == "filter") {
           this.location = result.locValue;
           this.gender = result.genderValue;
+          if (this.location != "" || this.gender != ""){
+            this.active = true;
+          } else {
+            this.active = false;
+          }
           this.getBy(this.searchParam, this.gender, this.location, this.sortDir);
         }
       }

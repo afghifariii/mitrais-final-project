@@ -11,6 +11,10 @@
     color: white;
 }
 
+.active {
+  background-color: #E0E0E0;
+}
+
 .top-bar-div {
     box-sizing: border-box;
     position: absolute;
@@ -73,44 +77,3 @@
 ::-webkit-scrollbar { 
     display: block; 
 }
-/*.emp-card {
-  box-sizing: border-box;
-  width: 375px;
-  height: 82px;
-  padding: 10px 27px 10px 10px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
-
-.img-card {
-  float: left;
-  border-radius: 100%;
-  width: 60px;
-  height: 60px;
-}
-
-.card-left {
-  padding: 0px 0px 0px 10px;
-  float: left;
-}
-
-.card-right {
-  float: right;
-}
-
-.card-right {
-  float: right;
-}
-
-.card-right-icon {
-  float: right;
-  padding: 10px 0px 0px 0px;
-}
-
-.emp-name {
-  font-weight: bold;
-}
-
-.emp-info {
-  font-size: 14px;
-}*/

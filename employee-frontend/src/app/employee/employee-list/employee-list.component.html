@@ -14,7 +14,7 @@
         <button md-icon-button (click)="delete()" *ngIf="isEdited"><md-icon svgIcon="delete"></md-icon></button>
         <button md-icon-button (click)="sortEmployee()" *ngIf="sortDir == 'asc'" ><md-icon svgIcon="sort-desc"></md-icon></button>
         <button md-icon-button (click)="sortEmployee()" *ngIf="sortDir == 'desc'" ><md-icon svgIcon="sort-asc"></md-icon></button>        
-        <button md-icon-button (click)="filter()"><md-icon svgIcon="filter"></md-icon></button>
+        <button md-icon-button (click)="filter()" [ngClass]="{'active':active}"><md-icon svgIcon="filter"></md-icon></button>
     </div>
 </div>
 <div class="scroll-bar-div">
