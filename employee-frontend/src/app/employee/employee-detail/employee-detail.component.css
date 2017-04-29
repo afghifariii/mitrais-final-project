@@ -10,8 +10,12 @@
     overflow: auto;
 }
 
-.form-group{
+.form-group, .select-message{
+    background-color: #ffffff
+}
 
+#grade {
+  margin-bottom: 20px;
 }
 
 .form-body, .select-message {
@@ -94,6 +98,10 @@ md-card {
 md-input-container, md2-datepicker {
   width: 100%;
   margin-bottom: 13px;
+}
+
+.date {
+  margin-top: -100px;
 }
 
 .cancel-btn, .save-btn{
