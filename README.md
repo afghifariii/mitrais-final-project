@@ -12,6 +12,12 @@ Employee management app for mitrais-btpn jp final project
 
 ## Requirement Specifications
 * CRUD Employee (including photo)
-* location dropdown provided by database
+* Location dropdown provided by database
 * Search Employee by name
 * Filter Employee by location and or gender
+
+## How-to
+* Clone this git
+* Go to employee-backend folder and run `mvn spring-boot:run`
+* Go to employee-frontend folder and run `npm start`
+* Application will run on `localhost:4200`
