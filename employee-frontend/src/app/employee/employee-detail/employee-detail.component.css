@@ -1,15 +1,3 @@
-.content-bar-div {
-    box-sizing: border-box;
-    /*position: absolute;*/
-    height: 100%;
-    widows: auto;
-    /*width: 100%;*/
-    padding: 5px;
-    /*top: 50px;*/
-    bottom: 0;
-    overflow: auto;
-}
-
 .form-group, .select-message{
     background-color: #ffffff
 }
@@ -34,17 +22,14 @@
 }
 
 .left-form {
-    /*position: absolute;*/
     top: 5px;
     left: 20px;
     width: 400px;
     float: left;
     margin-left: 20px;
-    /*padding: 0px 0px  51px 0px;*/
 }
 
 .right-form {
-    /*position: absolute;*/
     top: 5px;
     left: 400px;
     width: 400px;
@@ -53,7 +38,6 @@
 }
 
 .form-img {
-    /*position: absolute;*/
     padding-left: 20px;
     float: left;
     top: 20px;
@@ -75,7 +59,6 @@ form {
   height: 46px;
   left: 375px;
   bottom: 0px;
-  /*right: 0px;*/
   width: calc(100% - 375px);
   min-width: 340px;
   background-color: #5c6bc0;
@@ -97,7 +80,6 @@ md-card {
 
 md-input-container {
   width: 100%;
-  /*margin-bottom: 13px;*/
 }
 
 .date-picker {
@@ -114,7 +96,6 @@ md-input-container {
 
 
 /deep/ .date-picker .md2-datepicker-trigger .md2-datepicker-input .md2-datepicker-arrow {
-    /*border-top: 5px solid transparent;*/
     display:none;
 }
 
@@ -127,12 +108,6 @@ md-input-container {
 .save-btn {
   background-color: #e91e63;
 }
-
-
-
-/*md2-datepicker {
-  margin-top: -15px;
-}*/
 
 input {
   max-height: 18px;

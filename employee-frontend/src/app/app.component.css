@@ -70,14 +70,12 @@
     background-color: #5c6bc0;
 }
 
-.nav-bar-icon {
-    padding: 5px 0px 0px 0px;
+/deep/ .mat-ink-bar{
+    background-color: #e91e63;
 }
 
-.spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.nav-bar-icon {
+    padding: 5px 0px 0px 0px;
 }
 
 .floating-button {
@@ -94,25 +92,3 @@
 .tab {
     overflow: auto;
 }
-/*
-.user-title {
-    font-size: 18px;
-}
-.left-div {
-  height: 500px;
-  top: 60px;
-  bottom: 0px;
-  width: 250px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-   overflow: auto;
-}
-.left-div-content {
-  overflow: auto;
-  top: 60px;
-  bottom: 0px;
-}
-.right-div {
-  position: absolute;
-  left: 258px;
-  background-color: red;
-}*/
