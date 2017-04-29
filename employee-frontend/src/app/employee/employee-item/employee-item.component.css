@@ -8,7 +8,8 @@
 }
 
 .selected{
-  background-color: grey;
+  background-color: #c5cae9;
+  border-bottom: 2px solid #c51162;
 }
 
 .notSelected{

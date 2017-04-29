@@ -44,6 +44,18 @@
   overflow-x: hidden;
 }
 
+.not-found {
+  box-sizing: border-box;
+  width: 375px;
+  height: 82px;
+  padding: 10px 27px 10px 10px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .floating-button {
   position: absolute;
   right: 20px;

@@ -21,7 +21,7 @@
     <div *ngIf="!isShow">
         <employee-item *ngFor="let e of employees" [employee]="e" (click)=onClick(e) [selectedEmployee]="selectedEmployee"></employee-item>
     </div>
-    <div *ngIf="isShow">
+    <div *ngIf="isShow" class="not-found">
         We couldn't find what you're looking for
     </div>
     <!--<div class="emp-card" *ngFor="let employee of employees" (click)="onSelect(employee)">
