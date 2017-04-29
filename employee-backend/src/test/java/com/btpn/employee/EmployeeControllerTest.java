@@ -1,4 +1,4 @@
-package com.btpn.employee.controller;
+package com.btpn.employee;
 
 
 import org.junit.Before;
@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+
 import org.junit.runners.MethodSorters;
 
 
@@ -45,6 +46,28 @@ public class EmployeeControllerTest {
 		
 		this.mockMvc.perform(get("/employees/all"))
 					.andExpect(jsonPath("$", hasSize(20)))
+					.andDo(print());
+	}
+	
+	@Test
+	public void getByLocation() throws Exception {
+		
+		this.mockMvc.perform(get("/employees/getby?firstName=&lastName=&gender=&location=1&sort=asc"))
+					.andExpect(jsonPath("$", hasSize(3)))
+					.andDo(print());
+	}
+	
+	@Test
+	public void getByGender() throws Exception {
+		this.mockMvc.perform(get("/employees/getby?firstName=&lastName=&gender=male&location=&sort=asc"))
+					.andExpect(jsonPath("$", hasSize(7)))
+					.andDo(print());
+	}
+	
+	@Test
+	public void getByGenderAndLocation() throws Exception {
+		this.mockMvc.perform(get("/employees/getby?firstName=&lastName=&gender=female&location=2&sort=asc"))
+					.andExpect(jsonPath("$", hasSize(3)))
 					.andDo(print());
 	}
 	
@@ -127,7 +150,7 @@ public class EmployeeControllerTest {
 						    +"\"dateOfBirth\": \"1994-02-08\","
 						    +"\"nationality\": \"Indonesia\","
 						    +"\"maritalStatus\": \"Single\","
-						    +"\"phone\": \"08098999\","
+						    +"\"phone\": \"08098999125\","
 						    +"\"email\": \"satriyawicaksana@gmail.com\","
 						    +"\"hiredDate\": \"2017-03-13\","
 						    +"\"suspendDate\": null,"
@@ -142,6 +165,13 @@ public class EmployeeControllerTest {
 					.contentType(MediaType.APPLICATION_JSON)
 					.content(employee))
 					.andExpect(status().isCreated());
+	}
+	
+	@Test
+	public void deleteEmployee() throws Exception {
+		this.mockMvc.perform(delete("/employees/a46467bd-936d-4b27-91ed-ac91a52c481b"))
+					.andExpect(status().isOk())
+					.andDo(print());
 	}
 	
 }

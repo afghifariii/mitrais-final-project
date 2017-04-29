@@ -51,7 +51,7 @@ public class EmployeeController {
 			
 		} else if (gender.equals("") && !location.equals("")) {
 			
-			return employeeRepo.findByLocationAndSort(firstName.toUpperCase(), lastName.toLowerCase(),
+			return employeeRepo.findByLocationAndSort(firstName.toLowerCase(), lastName.toLowerCase(),
 					location, new Sort(sorting));
 			
 		} else if (!gender.equals("") && location.equals("")) {
