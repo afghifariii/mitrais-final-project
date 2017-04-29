@@ -16,26 +16,17 @@
                 <input name="lastName" id="lastName" mdInput placeholder="Last Name" formControlName="lastName">
             </md-input-container>
 
-            <!--<md-input-container>
-                    <input name="gender" id="gender" mdInput placeholder="Gender" formControlName="gender">
-                </md-input-container>-->
-            <md-select name="gender" id="gender" placeholder="Gender" formControlName="gender">
+            <md-select class="select-option" name="gender" id="gender" placeholder="Gender" formControlName="gender">
                 <md-option *ngFor="let g of genderArr" [value]="g">{{ g }}</md-option>
             </md-select>
 
-            <!--<md-input-container>
-                    <input name="dateOfBirth" id="dateOfBirth" mdInput type="date" placeholder="Date of Birth" formControlName="dateOfBirth">
-                </md-input-container>-->
-            <md2-datepicker name="dateOfBirth" id="dateOfBirth" openOnFocus="true" type="date" placeholder="Date of Birth" formControlName="dateOfBirth"></md2-datepicker>
+            <md2-datepicker class="date-picker" name="dateOfBirth" id="dateOfBirth" openOnFocus="true" type="date" placeholder="Date of Birth" formControlName="dateOfBirth"></md2-datepicker>
 
             <md-input-container>
                 <input name="nationality" id="nationality" mdInput placeholder="Nationality" formControlName="nationality">
             </md-input-container>
 
-            <!--<md-input-container>
-                <input name="maritalStatus" id="maritalStatus" mdInput placeholder="Marital Status" formControlName="maritalStatus">
-            </md-input-container>-->
-            <md-select name="maritalStatus" id="maritalStatus" placeholder="Marital Status" formControlName="maritalStatus">
+            <md-select class="select-option" name="maritalStatus" id="maritalStatus" placeholder="Marital Status" formControlName="maritalStatus">
                 <md-option *ngFor="let m of maritalArr" [value]="m">{{ m }}</md-option>
             </md-select>
 
@@ -43,7 +34,7 @@
                 <input name="phone" id="phone" mdInput type="tel" placeholder="Phone" formControlName="phone">
             </md-input-container>
 
-            <md-select class="location" name="location" id="location" placeholder="Location" formControlName="location">
+            <md-select class="select-option" name="location" id="location" placeholder="Location" formControlName="location">
                 <md-option *ngFor="let l of locations" [value]="l.id" (click)="onChange(l)">{{ l.city }}</md-option>
             </md-select>
         </div>
@@ -52,36 +43,20 @@
             <md-input-container>
                 <input name="subDivision" id="subDivision" mdInput placeholder="Sub Division" formControlName="subDivision">
             </md-input-container>
-            <!--<md2-datepicker name="subDivision" id="subDivision" mdInput placeholder="Sub Division" formControlName="subDivision"></md2-datepicker>-->
-
 
             <md-input-container>
                 <input name="status" id="status" mdInput placeholder="Status" formControlName="status">
             </md-input-container>
 
-            <!--<md-input-container>
-                    <input name="suspendDate" id="suspendDate" mdInput type="date" placeholder="Suspend Date" formControlName="suspendDate">
-                </md-input-container>-->
-            <md2-datepicker class="date" name="suspendDate" id="suspendDate" openOnFocus="true" type="date" placeholder="Suspend Date" formControlName="suspendDate"></md2-datepicker>
+            <md2-datepicker class="date-picker" name="suspendDate" id="suspendDate" openOnFocus="true" type="date" placeholder="Suspend Date" formControlName="suspendDate"></md2-datepicker>
 
+            <md2-datepicker class="date-picker" name="hiredDate" id="hiredDate" openOnFocus="true" type="date" placeholder="Hired Date" formControlName="hiredDate"></md2-datepicker>
 
-            <!--<md-input-container>
-                    <input name="hiredDate" id="hiredDate" mdInput type="date" placeholder="Hired Date" formControlName="hiredDate">
-                </md-input-container>-->
-            <md2-datepicker name="hiredDate" id="hiredDate" openOnFocus="true" type="date" placeholder="Hired Date" formControlName="hiredDate"></md2-datepicker>
-
-
-            <!--<md-input-container>
-                <input name="grade" id="grade" mdInput placeholder="Grade" formControlName="grade">
-            </md-input-container>-->
-            <md-select name="grade" id="grade" placeholder="Grade" formControlName="grade">
+            <md-select class="select-option" name="grade" id="grade" placeholder="Grade" formControlName="grade">
                 <md-option *ngFor="let r of gradeArr" [value]="r">{{ r }}</md-option>
             </md-select>
 
-            <!--<md-input-container>
-                <input name="division" id="division" mdInput placeholder="Division" formControlName="division">
-            </md-input-container>-->
-            <md-select name="division" id="division" placeholder="Division" formControlName="division">
+            <md-select class="select-option" name="division" id="division" placeholder="Division" formControlName="division">
                 <md-option *ngFor="let d of divisionArr" [value]="d">{{ d }}</md-option>
             </md-select>
 

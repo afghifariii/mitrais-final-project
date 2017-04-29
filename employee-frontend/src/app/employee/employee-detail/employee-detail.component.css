@@ -95,13 +95,27 @@ md-card {
   margin-left: 0;
 }
 
-md-input-container, md2-datepicker {
+md-input-container {
   width: 100%;
-  margin-bottom: 13px;
+  /*margin-bottom: 13px;*/
 }
 
-.date {
-  margin-top: -100px;
+.date-picker {
+  margin-top: -9px;
+  margin-bottom: 13px;
+  width: 100%;
+}
+
+.select-option {
+  width: 100%;
+  margin-top: 9px;
+  margin-bottom: 17px;
+}
+
+
+/deep/ .date-picker .md2-datepicker-trigger .md2-datepicker-input .md2-datepicker-arrow {
+    /*border-top: 5px solid transparent;*/
+    display:none;
 }
 
 .cancel-btn, .save-btn{
@@ -114,14 +128,11 @@ md-input-container, md2-datepicker {
   background-color: #e91e63;
 }
 
-md-select {
-  width: 100%;
-  margin-bottom: 15px;
-}
 
-md2-datepicker {
+
+/*md2-datepicker {
   margin-top: -15px;
-}
+}*/
 
 input {
   max-height: 18px;
