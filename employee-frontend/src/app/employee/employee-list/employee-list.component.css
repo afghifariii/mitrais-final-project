@@ -3,6 +3,14 @@
   height: 100%;
 }
 
+/deep/ .search-container .mat-input-wrapper .mat-input-table .mat-input-infix .mat-input-placeholder-wrapper .mat-input-placeholder.mat-empty {
+    color: white;
+}
+
+/deep/ .search-container .mat-input-wrapper .mat-input-table .mat-input-infix .mat-input-placeholder-wrapper .mat-input-placeholder.mat-float {
+    color: white;
+}
+
 .top-bar-div {
     box-sizing: border-box;
     position: absolute;
@@ -50,7 +58,6 @@
   height: 82px;
   padding: 10px 27px 10px 10px;
   background-color: #e0e0e0;
-  cursor: pointer;
   font-style: italic;
   display: flex;
   justify-content: center;
