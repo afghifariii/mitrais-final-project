@@ -3,7 +3,7 @@
 </div>
 <div *ngIf="isShow" class="form-body">
 
-    <form [formGroup]="form" (ngSubmit)="save(form.value)" fxLayout="row">
+    <form [formGroup]="form" (ngSubmit)="save(form.value)" class="form-group">
 
         <div class=left-form>
             <input type="hidden" name="empId" id="empId" formControlName="empId">
@@ -43,7 +43,7 @@
                 <input name="phone" id="phone" mdInput type="tel" placeholder="Phone" formControlName="phone">
             </md-input-container>
 
-            <md-select class="location" name="location" id="location" placeholder="location" formControlName="location">
+            <md-select class="location" name="location" id="location" placeholder="Location" formControlName="location">
                 <md-option *ngFor="let l of locations" [value]="l.id" (click)="onChange(l)">{{ l.city }}</md-option>
             </md-select>
         </div>
