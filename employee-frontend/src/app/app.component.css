@@ -41,7 +41,7 @@
     height: auto;
     top: 60px;
     left: 375px;
-    right: 0px; /*delete this if no scroll bar*/
+    right: 0px;
     bottom: 0px;
     background-color: #ffffff
 }

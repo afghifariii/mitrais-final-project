@@ -5,9 +5,7 @@ import { Subject } from 'rxjs/Subject';
 export class AppService {
     
     private notify = new Subject<any>();
-    /**
-     * Observable string streams
-     */
+    
     notifyObservable$ = this.notify.asObservable();
 
     constructor() { }
