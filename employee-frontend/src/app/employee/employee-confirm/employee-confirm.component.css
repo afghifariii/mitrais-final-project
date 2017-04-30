@@ -1,5 +1,9 @@
 .ok-btn {
-    background-color: #3f51b5;
+    background-color: #e91e63;
+    color: #ffffff;
+}
+
+.cancel-btn {
     margin-right: 20px;
 }
 

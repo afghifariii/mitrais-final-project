@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { MdButtonModule, MdCheckboxModule, MdIconModule, MdInputModule, MdChipsModule, MdTabsModule, MdProgressSpinnerModule, MdSelectModule, MdDialogModule } from "@angular/material";
+import { MdButtonModule, MdTooltipModule, MdCheckboxModule, MdIconModule, MdInputModule, MdChipsModule, MdTabsModule, MdProgressSpinnerModule, MdSelectModule, MdDialogModule } from "@angular/material";
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { EmployeeListComponent } from "./employee/employee-list/employee-list.component";
@@ -45,6 +45,7 @@ import { SafeUrl } from "./safeUrl.pipe";
     ReactiveFormsModule,
     HttpModule,
     MdButtonModule,
+    MdTooltipModule,
     MdIconModule,
     MdDialogModule,
     MdCheckboxModule,

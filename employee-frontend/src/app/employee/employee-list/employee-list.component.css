@@ -67,11 +67,11 @@
   justify-content: center;
   align-items: center;
 }
+
 .floating-button {
   position: absolute;
   right: 20px;
   bottom: 10px;
-  background-color: #e91e63;
 }
 
 ::-webkit-scrollbar { 

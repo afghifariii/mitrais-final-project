@@ -78,12 +78,6 @@
     padding: 5px 0px 0px 0px;
 }
 
-.floating-button {
-  position: absolute;
-  right: 20px;
-  bottom: 10px;
-}
-
 .content {
     height: 100%;
     overflow: auto;

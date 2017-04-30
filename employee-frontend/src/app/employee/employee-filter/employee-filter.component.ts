@@ -13,8 +13,8 @@ import { Location } from "../../location/location.model";
 export class EmployeeFilterComponent implements OnInit {
   private locations: Location[];
   genderArr = ["Male", "Female"];
-  genderDisabled = false; 
-  locationDisabled = false; 
+  genderIsEnabled = false; 
+  locationIsEnabled = false; 
   gender = "";
   tempGender = "";
   location = "";
@@ -31,7 +31,7 @@ export class EmployeeFilterComponent implements OnInit {
   }
 
   onLocationClick() {
-    if (this.locationDisabled == true) {
+    if (this.locationIsEnabled == true) {
       this.location = "";
     } else {
       this.location = this.tempLocation;
@@ -44,7 +44,7 @@ export class EmployeeFilterComponent implements OnInit {
   }
 
   onGenderClick() {
-    if (this.genderDisabled == true) {
+    if (this.genderIsEnabled == true) {
       this.gender = "";
     } else {
       this.gender = this.tempGender;

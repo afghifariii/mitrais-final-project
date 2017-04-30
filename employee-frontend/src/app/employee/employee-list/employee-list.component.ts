@@ -122,6 +122,10 @@ export class EmployeeListComponent implements OnInit {
     });
   }
 
+  new() {
+    this.appService.notifyOther({ option: 'refreshSelected', value: 'new' });
+  }
+
   ngOnDestroy() {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
@@ -136,12 +140,12 @@ export class EmployeeListComponent implements OnInit {
     if (this.gender != "") {
       dialogRef.componentInstance.gender = this.gender;
       dialogRef.componentInstance.tempGender = this.gender;
-      dialogRef.componentInstance.genderDisabled = true;
+      dialogRef.componentInstance.genderIsEnabled = true;
     }
     if (this.location != "") {
       dialogRef.componentInstance.location = this.location;
       dialogRef.componentInstance.tempLocation = this.location;
-      dialogRef.componentInstance.locationDisabled = true;
+      dialogRef.componentInstance.locationIsEnabled = true;
     }
     dialogRef.afterClosed().subscribe(result => {
       if (result != undefined) {
