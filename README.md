@@ -19,5 +19,5 @@ Employee management app for mitrais-btpn jp final project
 ## How-to
 * Clone this git
 * Go to employee-backend folder and run `mvn spring-boot:run`
-* Go to employee-frontend folder and run `npm start`
+* Go to employee-frontend folder and run `npm install` and then `npm start`
 * Application will run on `localhost:4200`
