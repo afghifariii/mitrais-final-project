@@ -71,7 +71,7 @@ export class EmployeeDetailComponent implements OnInit {
     var reader = new FileReader();
     reader.onload = (event: any) => {
       this.empPhoto = event.target.result;
-      console.log(this.empPhoto);
+      //console.log(this.empPhoto);
     }
     
     reader.readAsDataURL(event.target.files[0]);

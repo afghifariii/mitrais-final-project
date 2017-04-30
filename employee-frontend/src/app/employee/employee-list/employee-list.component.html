@@ -22,7 +22,7 @@
         <employee-item *ngFor="let e of employees" [employee]="e" (click)=onClick(e) [selectedEmployee]="selectedEmployee"></employee-item>
     </div>
     <div *ngIf="isShow" class="not-found">
-        We couldn't find what you're looking for
+        We couldn't find what you were looking for
     </div>
 </div>
 <a routerLink="/employees/new" (click)="new()"><button md-mini-fab class="floating-button" ><md-icon svgIcon="add"></md-icon></button></a>
