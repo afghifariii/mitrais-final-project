@@ -17,7 +17,7 @@ import { Location } from "../../location/location.model";
 })
 export class EmployeeDetailComponent implements OnInit {
 
-  employee: Employee;
+  employee: Employee = new Employee("","","","",null,"","","","",null,null,"","","","","",new Location("", ""));
   location: Location;
   private locations: Location[];
   private form;

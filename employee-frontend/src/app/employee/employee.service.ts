@@ -60,7 +60,7 @@ export class EmployeeService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    if (empId != 'new' && empId != null) {
+    if (empId != 'new' && empId != null && empId != undefined) {
       let url = "/api/employees/" + employee.empId;
       return this.http.put(url, JSON.stringify(employee), { headers: headers })
         .map(response => response.json());
