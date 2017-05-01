@@ -12,8 +12,8 @@
     </div>
     <div class="right-search-menu">
         <button md-icon-button (click)="delete()" *ngIf="isEdited" mdTooltip="Delete"><md-icon svgIcon="delete"></md-icon></button>
-        <button md-icon-button (click)="sortEmployee()" *ngIf="sortDir == 'asc'"  mdTooltip="Sort Ascending"><md-icon svgIcon="sort-desc"></md-icon></button>
-        <button md-icon-button (click)="sortEmployee()" *ngIf="sortDir == 'desc'"  mdTooltip="Sort Descending"><md-icon svgIcon="sort-asc"></md-icon></button>
+        <button md-icon-button (click)="sortEmployee()" *ngIf="sortDir == 'asc'"  mdTooltip="Sort Descending"><md-icon svgIcon="sort-desc"></md-icon></button>
+        <button md-icon-button (click)="sortEmployee()" *ngIf="sortDir == 'desc'"  mdTooltip="Sort Ascending"><md-icon svgIcon="sort-asc"></md-icon></button>
         <button md-icon-button (click)="filter()" [ngClass]="{'active':active}" mdTooltip="Filter"><md-icon svgIcon="filter"></md-icon></button>
     </div>
 </div>
