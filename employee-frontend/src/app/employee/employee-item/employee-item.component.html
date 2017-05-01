@@ -1,15 +1,21 @@
-<div class="emp-card" [ngClass]="{'selected':isSelected(),'notSelected':!isSelected()}">
-  <img class="img-card" [src]="setImage() | safeUrl">
-  <div class="card-left">
-    <a class="emp-name">{{employee.firstName}} {{employee.lastName}}</a><br>
-    <a class="emp-info">{{employee.grade}}, {{employee.division}}<br>
-                            {{employee.location.city}}, {{employee.phone}}</a>
+<div fxLayout="row" class="emp-card" [ngClass]="{'selected':isSelected(),'notSelected':!isSelected()}">
+  <div fxFlex="25" class="image-container">
+    <img class="img-card" [src]="setImage() | safeUrl">
   </div>
-  <div class="card-right">
-    <a class="emp-info">{{employee.hiredDate | date:'dd-MM-y'}}</a><br>
-    <div class="card-right-icon">
-      <md-icon svgIcon="radio_button_checked"></md-icon>
-      <md-icon svgIcon="chevron_right"></md-icon>
+  <div fxFlex="50">
+    <div class="card-left">
+      <a class="emp-name">{{employee.firstName}} {{employee.lastName}}</a><br>
+      <a class="emp-info">{{employee.grade}}, {{employee.division}}<br>
+                            {{employee.location.city}}, {{employee.phone}}</a>
+    </div>
+  </div>
+  <div fxFlex="25">
+    <div class="card-right">
+      <a class="emp-info">{{employee.hiredDate | date:'dd MMM y'}}</a><br>
+      <div class="card-right-icon">
+        <md-icon svgIcon="radio_button_checked"></md-icon>
+        <md-icon svgIcon="chevron_right"></md-icon>
+      </div>
     </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 .emp-card {
   box-sizing: border-box;
   width: 375px;
-  height: 82px;
+  height: auto;
   padding: 10px 27px 10px 10px;
   border-bottom: 2px solid rgba(0, 0, 0, 0.5);
   cursor: pointer;
@@ -17,10 +17,15 @@
 }
 
 .img-card {
-  float: left;
   border-radius: 100%;
   width: 60px;
   height: 60px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-left {
@@ -38,7 +43,7 @@
 
 .card-right-icon {
   float: right;
-  padding: 10px 0px 0px 0px;
+  padding: 5px 0px 0px 0px;
 }
 
 .emp-name {
