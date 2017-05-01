@@ -60,7 +60,7 @@ public class EmployeeController {
 					gender.toLowerCase(), new Sort(sorting));
 			
 		} else {
-			return employeeRepo.findByLocationGenderAndSort(firstName.toUpperCase(), lastName.toUpperCase(),
+			return employeeRepo.findByLocationGenderAndSort(firstName.toLowerCase(), lastName.toLowerCase(),
 					gender.toLowerCase(), location, new Sort(sorting));
 		}
 	}
