@@ -22,3 +22,4 @@ Employee management app for mitrais-btpn jp final project
 * Spring-boot will run on `localhost:8080`
 * Go to employee-frontend folder and run `npm install` and then `npm start`
 * Angular-2 will run on `localhost:4200`
+* Work well on Firefox or Chrome in `1366 x 768` Resolution
