@@ -65,16 +65,18 @@ export class EmployeeDetailComponent implements OnInit {
   }
 
   chooseImage(event) {
-    this.image = event.target.files;
-    //console.log(this.image[0]);
+    if(event.target.files[0]){
+      this.image = event.target.files;
+      //console.log(this.image[0]);
 
-    var reader = new FileReader();
-    reader.onload = (event: any) => {
-      this.empPhoto = event.target.result;
-      //console.log(this.empPhoto);
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.empPhoto = event.target.result;
+        //console.log(this.empPhoto);
+      }
+      
+      reader.readAsDataURL(event.target.files[0]);
     }
-    
-    reader.readAsDataURL(event.target.files[0]);
 
   }
 
