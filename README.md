@@ -1,4 +1,4 @@
-# BTPN-JP Final Project
+# MITRAIS-JP Final Project
 Employee management app for mitrais-btpn jp final project
 
 ## Technical Specifications
